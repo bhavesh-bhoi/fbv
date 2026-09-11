@@ -1,0 +1,69 @@
+.hero {
+  height: 100vh;
+  padding-top: 5rem; /* make room for absolute navbar */
+}
+
+.hero-left {
+  background-color: var(--light-blue);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero-left-content {
+  max-width: 600px;
+}
+
+.hero-title {
+  font-size: 4rem;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 2.5rem;
+  opacity: 0.8;
+}
+
+.hero-right {
+  background-color: #e5e5e5; /* slightly gray bg for the image side */
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-image-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: grayscale(100%); /* match the B&W look */
+}
+
+.lightning-bolt {
+  position: absolute;
+  top: 30%;
+  left: 15%;
+  z-index: 10;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    height: auto;
+  }
+  .hero-left {
+    padding: 6rem 2rem 4rem;
+  }
+  .hero-right {
+    height: 50vh;
+  }
+}

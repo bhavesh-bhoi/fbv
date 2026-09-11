@@ -1,0 +1,60 @@
+.logos-section {
+  background-color: var(--off-white);
+  padding: 6rem 2rem;
+  border-bottom: 1px solid var(--blue);
+}
+
+.logos-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.logos-title-area {
+  flex: 0 0 200px;
+}
+
+.logos-title-area h2 {
+  font-size: 2.2rem;
+  line-height: 1.1;
+  color: var(--blue);
+}
+
+.wavy-underline {
+  margin-top: 0.5rem;
+}
+
+.logos-track {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+.logo-item {
+  color: #000;
+  text-align: center;
+  opacity: 0.8;
+  filter: grayscale(100%);
+}
+
+.logo-item h3 {
+  color: #000;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+@media (max-width: 900px) {
+  .logos-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .logos-track {
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+}

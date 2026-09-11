@@ -1,0 +1,204 @@
+/* Striped Background */
+.striped-section {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--off-white),
+    var(--off-white) 40px,
+    var(--light-blue) 40px,
+    var(--light-blue) 80px
+  );
+  padding: 8rem 2rem;
+  border-top: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
+}
+
+.striped-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--off-white);
+  padding: 3rem;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.striped-text h2 {
+  font-size: 2.2rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.circled-text {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.5rem;
+}
+
+.circle-draw {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 150%;
+  pointer-events: none;
+}
+
+.heart-hand {
+  position: absolute;
+  left: -20px;
+  bottom: -40px;
+}
+.sparkle {
+  position: absolute;
+  right: -10px;
+  top: -20px;
+}
+
+/* Grid Background */
+.services-grid-section {
+  background-color: var(--off-white);
+  background-image: 
+    linear-gradient(rgba(27, 74, 186, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27, 74, 186, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  padding: 6rem 2rem;
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+}
+
+.services-left {
+  flex: 1;
+}
+
+.services-left h2 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 4rem;
+}
+
+.accordion {
+  list-style: none;
+  width: 100%;
+}
+
+.accordion-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-bottom: 2px solid var(--blue);
+  cursor: pointer;
+}
+
+.accordion-item h3 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.accordion-item.active h3 {
+  font-weight: 700;
+  font-family: var(--font-primary);
+  font-style: normal;
+}
+
+.accordion-item:not(.active) h3 {
+  font-weight: normal;
+}
+
+.icon {
+  font-size: 2rem;
+  color: var(--blue);
+}
+
+/* Service Card */
+.services-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.service-card {
+  background-color: var(--light-blue);
+  border-radius: 20px;
+  padding: 3rem;
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+  margin-bottom: 1.5rem;
+}
+
+.card-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.card-subtitle {
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.card-details h4 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-details ul {
+  list-style: none;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+.card-details ul li {
+  margin-bottom: 0.5rem;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.pill-info {
+  background-color: #fff;
+  border-radius: 50px;
+  padding: 0.8rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.pill-info.dark {
+  background-color: var(--blue);
+  color: #fff;
+}
+.pill-info.dark .label {
+  color: #fff;
+}
+.pill-info .label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .services-container {
+    flex-direction: column;
+  }
+  .services-right {
+    justify-content: center;
+  }
+}
