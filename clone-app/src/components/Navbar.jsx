@@ -6,7 +6,7 @@ const Navbar = () => {
       <div className="navbar-left">
         <div className="logo">
           <a href="#home" aria-label="Vidhi Studio Home">
-            <img src="/assets/vidhi.svg" alt="Vidhi" className="nav-logo-img" />
+            <img src="/assets/1.svg" alt="Vidhi" className="nav-logo-img" />
           </a>
         </div>
       </div>

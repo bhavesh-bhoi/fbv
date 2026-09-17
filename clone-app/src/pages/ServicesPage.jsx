@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import Services from '../components/Services';
 import Portfolio from '../components/Portfolio';
-import Logos from '../components/Logos';
 import CTA from '../components/CTA';
 
 const ServicesPage = () => {
@@ -64,7 +63,6 @@ const ServicesPage = () => {
 
       {/* Shared Bottom Sequence requested by user */}
       <Portfolio />
-      <Logos />
       <CTA />
     </div>
   );

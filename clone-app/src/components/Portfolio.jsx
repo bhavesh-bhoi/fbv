@@ -21,12 +21,11 @@ const Portfolio = () => {
         </div>
 
         <div className="sticker-blue">
-          <svg viewBox="0 0 150 80" className="oval-text">
-            <ellipse cx="75" cy="40" rx="65" ry="35" fill="#1b4aba" />
-            <text x="75" y="35" fill="#fff" fontSize="10" textAnchor="middle" fillOpacity="0.8">built from your essence</text>
-            <text x="75" y="55" fill="#fff" fontSize="20" fontWeight="bold" textAnchor="middle">vidhi</text>
-            <text x="75" y="65" fill="#fff" fontSize="8" textAnchor="middle" fillOpacity="0.8">creative design studio</text>
-          </svg>
+          <img
+            src="/assets/2.svg"
+            alt="Built from your essence - Vidhi Creative Design Studio"
+            className="sticker-blue-img"
+          />
         </div>
       </div>
 

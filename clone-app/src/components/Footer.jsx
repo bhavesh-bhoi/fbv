@@ -49,14 +49,13 @@ const Footer = () => {
           <div className="footer-bottom grid-bg">
              <div className="footer-bottom-content">
                 <div className="footer-logo-massive">
-                  <img src="/assets/vidhi.svg" alt="Vidhi Studio" className="footer-logo-img" />
+                  <img src="/assets/1.svg" alt="Vidhi Studio" className="footer-logo-img" />
                 </div>
                 <div className="footer-info">
                    <div className="social-icons">
-                     {/* SVG placehoder icons */}
-                     <div className="icon-circle">IN</div>
-                     <div className="icon-circle">PI</div>
-                     <div className="icon-circle">IG</div>
+                     <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="icon-circle" aria-label="LinkedIn">IN</a>
+                     <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" className="icon-circle" aria-label="Pinterest">PI</a>
+                     <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="icon-circle" aria-label="Instagram">IG</a>
                    </div>
                    <p>DESIGNED WITH LOVE BY<br/>VIDHI STUDIO</p>
                 </div>
