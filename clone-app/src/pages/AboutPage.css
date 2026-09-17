@@ -1,0 +1,323 @@
+/* AboutPage.css - Aligned with https://maedesign.es/about-me */
+.page-about {
+  width: 100%;
+  background-color: #faf9f6;
+  color: #1a1a1a;
+  overflow: hidden;
+}
+
+/* 1. Hero Section */
+.about-page-hero {
+  padding: 6rem 2rem 5.5rem 2rem;
+  border-bottom: 1.5px solid rgba(0, 85, 203, 0.18);
+  background-color: #faf9f6;
+}
+
+.about-page-hero-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+/* Left photo composition */
+.about-page-hero-left {
+  flex: 0 0 460px;
+}
+
+.about-page-photo-stack {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  height: 520px;
+}
+
+.about-page-main-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 16px 36px rgba(0, 50, 130, 0.12);
+  display: block;
+}
+
+/* Floating stickers */
+.about-page-tag-top {
+  position: absolute;
+  top: -16px;
+  left: -20px;
+  background-color: #c9d8f7;
+  color: var(--blue, #0055cb);
+  border: 1.5px solid var(--blue, #0055cb);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 8px 16px;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0, 85, 203, 0.12);
+  transform: rotate(-3deg);
+}
+
+.about-page-tag-bottom {
+  position: absolute;
+  bottom: 24px;
+  right: -24px;
+  background-color: #fffcbd;
+  color: var(--blue, #0055cb);
+  border: 1.5px solid var(--blue, #0055cb);
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  padding: 8px 18px;
+  border-radius: 24px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transform: rotate(2deg);
+}
+
+.about-page-seal {
+  position: absolute;
+  top: 40px;
+  right: -20px;
+  background-color: var(--blue, #0055cb);
+  color: #ffffff;
+  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.15;
+  box-shadow: 0 4px 12px rgba(0, 85, 203, 0.25);
+}
+
+/* Right story column */
+.about-page-hero-right {
+  flex: 1;
+}
+
+.about-page-eyebrow {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: var(--blue, #0055cb);
+  background-color: #c9d8f7;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+}
+
+.about-page-hero-title {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 2.35rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--blue, #0055cb);
+  margin: 0 0 1.75rem 0;
+  letter-spacing: -0.02em;
+}
+
+.about-page-hero-p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.02rem;
+  font-weight: 500;
+  line-height: 1.7;
+  color: #333333;
+  margin-bottom: 1.25rem;
+}
+
+.about-page-cta-row {
+  margin-top: 2rem;
+}
+
+/* 2. Philosophy & Principles Section */
+.about-philosophy-section {
+  padding: 6.5rem 2rem 7rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 1.5px solid rgba(0, 85, 203, 0.18);
+}
+
+.about-philosophy-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+.about-philosophy-media {
+  flex: 0 0 440px;
+}
+
+.philosophy-photo-card {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 14px 32px rgba(0, 50, 130, 0.1);
+}
+
+.philosophy-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.philosophy-deco-pill {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  color: var(--blue, #0055cb);
+  border: 1px solid rgba(0, 85, 203, 0.25);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 6px 14px;
+  border-radius: 16px;
+}
+
+.about-philosophy-content {
+  flex: 1;
+}
+
+.philosophy-header {
+  margin-bottom: 2.5rem;
+}
+
+.philosophy-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--blue, #0055cb);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.philosophy-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--blue, #0055cb);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.pillars-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.pillar-detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  background-color: #faf9f6;
+  border: 1px solid rgba(0, 85, 203, 0.12);
+  transition: all 0.3s ease;
+}
+
+.pillar-detail-row:hover {
+  background-color: #f2f6fe;
+  border-color: var(--blue, #0055cb);
+  transform: translateX(4px);
+}
+
+.pillar-index {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--blue, #0055cb);
+  background-color: #c9d8f7;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pillar-info {
+  flex: 1;
+}
+
+.pillar-title-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--blue, #0055cb);
+  margin: 0 0 0.3rem 0;
+}
+
+.pillar-desc-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #444444;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .about-page-hero-container,
+  .about-philosophy-container {
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  .about-page-hero-left,
+  .about-philosophy-media {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  .about-page-hero-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-page-photo-stack {
+    height: 380px;
+  }
+
+  .about-page-tag-top,
+  .about-page-tag-bottom {
+    font-size: 0.65rem;
+    padding: 6px 12px;
+  }
+
+  .about-page-seal {
+    width: 58px;
+    height: 58px;
+    font-size: 0.6rem;
+  }
+
+  .philosophy-photo-card {
+    height: 340px;
+  }
+
+  .about-page-hero-title {
+    font-size: 1.65rem;
+  }
+}

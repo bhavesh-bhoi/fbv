@@ -1,60 +1,372 @@
 .logos-section {
-  background-color: var(--off-white);
-  padding: 6rem 2rem;
-  border-bottom: 1px solid var(--blue);
-}
-
-.logos-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 4rem;
-}
-
-.logos-title-area {
-  flex: 0 0 200px;
-}
-
-.logos-title-area h2 {
-  font-size: 2.2rem;
-  line-height: 1.1;
-  color: var(--blue);
-}
-
-.wavy-underline {
-  margin-top: 0.5rem;
-}
-
-.logos-track {
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background-color: var(--off-white, #faf9f6);
+  padding: 4.5rem 0;
+  border-top: 1px solid rgba(0, 85, 203, 0.15);
+  border-bottom: 1px solid rgba(0, 85, 203, 0.15);
   overflow: hidden;
+  position: relative;
 }
 
-.logo-item {
-  color: #000;
+.logos-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+/* Fixed left title matching user screenshot */
+.logos-title-area {
+  flex: 0 0 210px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  user-select: none;
+}
+
+.logos-heading {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 2.15rem;
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--blue, #0055cb);
+  margin: 0;
+  text-transform: lowercase;
+  letter-spacing: -0.03em;
+}
+
+.wavy-underline-svg {
+  margin-top: 0.6rem;
+  display: block;
+}
+
+/* Interactive marquee track container with drag support */
+.logos-marquee-container {
+  flex: 1;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: grab;
+  user-select: none;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+}
+
+.logos-marquee-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+.logos-marquee-container.is-dragging {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+
+.logos-marquee-container.is-dragging * {
+  cursor: grabbing !important;
+  user-select: none !important;
+}
+
+.logos-marquee-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  will-change: transform;
+}
+
+.logos-marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 4.5rem;
+  padding-right: 4.5rem;
+  flex-shrink: 0;
+}
+
+.logo-badge-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 130px;
+  user-select: none;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  pointer-events: auto;
+}
+
+.logo-badge-wrapper:hover {
+  transform: scale(1.06);
+}
+
+/* --- Brand Logo Badges Exact Styles --- */
+.brand-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+}
+
+.is-dragging .brand-badge {
+  cursor: grabbing;
+}
+
+/* 1. the poster club. */
+.badge-poster-club {
+  position: relative;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  color: #1a1a1a;
+  line-height: 0.95;
+  font-size: 1.45rem;
+}
+
+.poster-bg-box {
+  position: absolute;
+  right: -6px;
+  bottom: 0px;
+  width: 44px;
+  height: 38px;
+  background-color: #838383;
+  opacity: 0.85;
+  z-index: 1;
+  border-radius: 1px;
+}
+
+.poster-text {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.poster-line1 {
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.poster-line2 {
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+
+.poster-line3 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* 2. Clarity BY NIKKI NOVO */
+.badge-clarity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.clarity-pill {
+  background-color: #6d6e71;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  padding: 5px 16px 4px 16px;
+  letter-spacing: -0.02em;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.clarity-sub {
+  background-color: #4a4a4b;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 3px 8px;
+  margin-top: 1px;
+  border-radius: 1px;
+}
+
+/* 3. BARE EARTH */
+.badge-bare-earth .bare-box {
+  background-color: #727272;
+  color: #ffffff;
+  padding: 6px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.bare-line {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 1px;
+  width: 100%;
   text-align: center;
-  opacity: 0.8;
-  filter: grayscale(100%);
 }
 
-.logo-item h3 {
-  color: #000;
-  font-size: 1.5rem;
+.earth-line {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  padding-top: 2px;
+  width: 100%;
+  text-align: center;
+}
+
+/* 4. SHARED GROUND */
+.badge-shared-ground {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  color: #1a1a1a;
+  line-height: 0.95;
+  text-align: left;
+}
+
+.shared-line {
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
+  display: block;
+}
+
+.ground-line {
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
+  display: block;
+}
+
+/* 5. MOSI SKIN */
+.badge-mosi-skin {
+  font-family: 'Instrument Serif', Georgia, serif;
+  color: #1a1a1a;
+  text-align: center;
+  line-height: 0.95;
+}
+
+.mosi-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  display: block;
+}
+
+.mosi-sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  display: block;
+  margin-top: 3px;
+  color: #4a4a4b;
+}
+
+/* 6. PRETTY BABY THINGS */
+.badge-pretty-baby {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
   line-height: 1;
 }
 
-@media (max-width: 900px) {
-  .logos-container {
+.pbt-badge {
+  background-color: #f7d6d0;
+  color: #1a1a1a;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.pbt-sub {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  margin-top: 3px;
+  color: #1a1a1a;
+}
+
+/* 7. INNER MATTER */
+.badge-inner-matter {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  color: #1a1a1a;
+  text-align: center;
+  line-height: 1;
+  border: 2px solid #1a1a1a;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.inner-line {
+  display: block;
+  font-size: 0.95rem;
+  letter-spacing: 0.15em;
+}
+
+.matter-line {
+  display: block;
+  font-size: 0.95rem;
+  letter-spacing: 0.15em;
+}
+
+/* 8. si her */
+.badge-si-her {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 2.1rem;
+  line-height: 0.85;
+  color: #0055cb;
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+.her-text {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #1a1a1a;
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .logos-wrapper {
     flex-direction: column;
+    align-items: center;
     text-align: center;
-  }
-  .logos-track {
-    flex-wrap: wrap;
     gap: 2rem;
-    justify-content: center;
+  }
+
+  .logos-title-area {
+    flex: 0 0 auto;
+    align-items: center;
+  }
+
+  .logos-heading {
+    font-size: 1.9rem;
+  }
+
+  .logos-marquee-container {
+    width: 100%;
+  }
+
+  .logos-marquee-group {
+    gap: 3rem;
+    padding-right: 3rem;
   }
 }

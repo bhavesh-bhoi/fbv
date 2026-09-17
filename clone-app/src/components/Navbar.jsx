@@ -4,7 +4,11 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <div className="logo"><a href="#home">maë</a></div>
+        <div className="logo">
+          <a href="#home" aria-label="Vidhi Studio Home">
+            <img src="/assets/vidhi.svg" alt="Vidhi" className="nav-logo-img" />
+          </a>
+        </div>
       </div>
       <div className="navbar-center">
         <a href="#work">WORK</a>

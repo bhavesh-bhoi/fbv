@@ -107,7 +107,14 @@
 
 .footer-logo-massive {
   flex: 1;
-  margin-left: -5%; /* Pull slightly left like the design */
+  max-width: 600px;
+}
+
+.footer-logo-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
 }
 
 .footer-info {

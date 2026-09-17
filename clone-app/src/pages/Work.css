@@ -1,0 +1,212 @@
+/* Work Page Styling aligned with https://maedesign.es/portfolio */
+.page-work {
+  width: 100%;
+  background-color: #faf9f6;
+}
+
+/* 1. Header Banner matching maedesign.es/portfolio */
+.work-header-section {
+  background-color: #c9d8f7;
+  padding: 5rem 2rem 4.5rem 2rem;
+  border-bottom: 2px solid var(--blue, #0055cb);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.work-header-container {
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.work-main-title {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--blue, #0055cb);
+  margin: 0 0 1.25rem 0;
+  line-height: 1.2;
+}
+
+.work-main-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--blue, #0055cb);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.work-header-deco-left {
+  position: absolute;
+  top: 10%;
+  left: -20px;
+  opacity: 0.85;
+}
+
+.work-header-deco-right {
+  position: absolute;
+  top: 10%;
+  right: -20px;
+}
+
+.work-sticker-pill {
+  background-color: #fffcbd;
+  color: var(--blue, #0055cb);
+  border: 1.5px solid var(--blue, #0055cb);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transform: rotate(8deg);
+  box-shadow: 0 4px 10px rgba(0, 85, 203, 0.12);
+}
+
+/* 2. Project Grid */
+.work-grid-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5.5rem 2rem 7rem 2rem;
+}
+
+.work-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.5rem 2.5rem;
+}
+
+.project-grid-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-grid-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Image Thumbnail with 10px rounded corners */
+.card-media-wrapper {
+  width: 100%;
+  height: 380px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  background-color: #e8eef8;
+  box-shadow: 0 6px 20px rgba(0, 50, 130, 0.08);
+}
+
+.card-media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-grid-card:hover .card-media-img {
+  transform: scale(1.04);
+}
+
+.card-tag-pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(6px);
+  color: var(--blue, #0055cb);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 85, 203, 0.2);
+}
+
+/* Details area matching Showit layout */
+.card-details-area {
+  padding-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--blue, #0055cb);
+  margin: 0;
+  letter-spacing: -0.02em;
+  transition: color 0.2s ease;
+}
+
+.card-arrow-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.project-grid-card:hover .card-arrow-icon {
+  transform: translateX(4px);
+}
+
+/* Thin horizontal line divider */
+.card-divider-line {
+  width: 100%;
+  height: 1.5px;
+  background-color: var(--blue, #0055cb);
+  margin-bottom: 0.85rem;
+  opacity: 0.85;
+}
+
+.card-description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--blue, #0055cb);
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+  .work-projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 2rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .work-projects-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .card-media-wrapper {
+    height: 320px;
+  }
+
+  .work-main-title {
+    font-size: 1.85rem;
+  }
+
+  .work-header-deco-left,
+  .work-header-deco-right {
+    display: none;
+  }
+}

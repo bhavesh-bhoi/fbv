@@ -1,4 +1,12 @@
-/* Striped Background */
+/* Services Section & Tickers Styles matching maedesign.es */
+
+.services-section-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Striped Quote Background */
 .striped-section {
   background: repeating-linear-gradient(
     90deg,
@@ -13,26 +21,27 @@
 }
 
 .striped-content {
-  max-width: 800px;
+  max-width: 820px;
   margin: 0 auto;
   background-color: var(--off-white);
-  padding: 3rem;
+  padding: 3.5rem 2.5rem;
   border-radius: 20px;
   text-align: center;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 12px 36px rgba(27, 74, 186, 0.08);
 }
 
 .striped-text h2 {
   font-size: 2.2rem;
-  line-height: 1.4;
+  line-height: 1.35;
   font-weight: 700;
+  color: var(--blue);
 }
 
 .circled-text {
   position: relative;
   display: inline-block;
-  padding: 0 0.5rem;
+  padding: 0 0.4rem;
 }
 
 .circle-draw {
@@ -40,30 +49,91 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 120%;
-  height: 150%;
+  width: 125%;
+  height: 155%;
   pointer-events: none;
 }
 
 .heart-hand {
   position: absolute;
   left: -20px;
-  bottom: -40px;
+  bottom: -35px;
 }
+
 .sparkle {
   position: absolute;
   right: -10px;
   top: -20px;
 }
 
+/* Continuous Marquee Ticker Ribbons */
+.ticker-ribbon {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0.85rem 0;
+  display: flex;
+  position: relative;
+  z-index: 20;
+}
+
+.ticker-blue {
+  background-color: var(--blue);
+  border-bottom: 2px solid var(--blue);
+}
+
+.ticker-blue .ticker-track span {
+  color: var(--yellow);
+  font-size: 1.45rem;
+  letter-spacing: 1px;
+}
+
+.ticker-light {
+  background-color: var(--yellow);
+  border-top: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
+  padding: 0.75rem 0;
+}
+
+.ticker-light .ticker-track span {
+  color: var(--blue);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeSlide 24s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+.ticker-reverse {
+  animation: marqueeSlideReverse 26s linear infinite;
+}
+
+@keyframes marqueeSlide {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeSlideReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
 /* Grid Background */
 .services-grid-section {
   background-color: var(--off-white);
   background-image: 
-    linear-gradient(rgba(27, 74, 186, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(27, 74, 186, 0.1) 1px, transparent 1px);
+    linear-gradient(rgba(27, 74, 186, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27, 74, 186, 0.08) 1px, transparent 1px);
   background-size: 40px 40px;
-  padding: 6rem 2rem;
+  padding: 6.5rem 2rem;
 }
 
 .services-container {
@@ -71,7 +141,7 @@
   margin: 0 auto;
   display: flex;
   align-items: flex-start;
-  gap: 4rem;
+  gap: 5rem;
 }
 
 .services-left {
@@ -79,9 +149,16 @@
 }
 
 .services-left h2 {
-  font-size: 3.5rem;
+  font-size: 3.4rem;
   line-height: 1.1;
-  margin-bottom: 4rem;
+  margin-bottom: 3.5rem;
+  color: var(--blue);
+}
+
+.services-accent-underline {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
 }
 
 .accordion {
@@ -93,14 +170,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 0;
-  border-bottom: 2px solid var(--blue);
+  padding: 1.4rem 0;
+  border-bottom: 1.5px solid var(--blue);
   cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.accordion-item:hover {
+  padding-left: 0.5rem;
 }
 
 .accordion-item h3 {
-  font-size: 2rem;
+  font-size: 2.1rem;
   margin: 0;
+  color: var(--blue);
+  transition: all 0.25s ease;
 }
 
 .accordion-item.active h3 {
@@ -110,15 +194,23 @@
 }
 
 .accordion-item:not(.active) h3 {
+  font-family: var(--font-secondary);
+  font-style: italic;
   font-weight: normal;
+  opacity: 0.85;
 }
 
-.icon {
-  font-size: 2rem;
+.accordion-item .icon {
+  font-size: 1.8rem;
   color: var(--blue);
+  transition: transform 0.25s ease;
 }
 
-/* Service Card */
+.accordion-item.active .icon {
+  transform: translateX(4px);
+}
+
+/* Service Card on the Right */
 .services-right {
   flex: 1;
   display: flex;
@@ -126,42 +218,57 @@
 }
 
 .service-card {
-  background-color: var(--light-blue);
-  border-radius: 20px;
-  padding: 3rem;
+  background: linear-gradient(145deg, #d2e4f7 0%, #bdd9f5 100%);
+  border-radius: 30px;
+  padding: 3.2rem 2.5rem;
   width: 100%;
-  max-width: 450px;
+  max-width: 440px;
   text-align: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 45px rgba(27, 74, 186, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .card-icon {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .card-title {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+  color: var(--blue);
+  text-transform: lowercase;
 }
 
 .card-subtitle {
-  font-size: 0.9rem;
-  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 1.8rem;
   font-weight: 500;
+  color: var(--blue);
+  opacity: 0.9;
 }
 
 .card-details h4 {
-  font-size: 1rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   margin-bottom: 1rem;
+  color: var(--blue);
 }
 
 .card-details ul {
   list-style: none;
   font-size: 0.9rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.2rem;
+  color: var(--blue);
+  text-align: left;
+  display: inline-block;
 }
+
 .card-details ul li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.45rem;
 }
 
 .card-footer {
@@ -171,34 +278,50 @@
 }
 
 .pill-info {
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 50px;
-  padding: 0.8rem 1.5rem;
+  padding: 0.7rem 1.4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 800;
   color: var(--blue);
+  box-shadow: 0 4px 12px rgba(27, 74, 186, 0.08);
 }
 
 .pill-info.dark {
   background-color: var(--blue);
-  color: #fff;
+  color: var(--yellow);
 }
+
 .pill-info.dark .label {
-  color: #fff;
+  color: rgba(255, 252, 189, 0.8);
 }
+
 .pill-info .label {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.75;
 }
 
 @media (max-width: 900px) {
   .services-container {
     flex-direction: column;
+    gap: 3.5rem;
   }
   .services-right {
     justify-content: center;
+    width: 100%;
+  }
+  .service-card {
+    max-width: 100%;
+  }
+  .services-left h2 {
+    font-size: 2.5rem;
+  }
+  .accordion-item h3 {
+    font-size: 1.7rem;
   }
 }

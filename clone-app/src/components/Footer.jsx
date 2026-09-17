@@ -48,23 +48,18 @@ const Footer = () => {
 
           <div className="footer-bottom grid-bg">
              <div className="footer-bottom-content">
-               <div className="footer-logo-massive">
-                  {/* Huge SVG placeholder for maë */}
-                  <svg viewBox="0 0 400 150" width="100%" height="auto">
-                    <text x="50%" y="80%" fill="#1b4aba" fontSize="150" fontWeight="900" textAnchor="middle" letterSpacing="-10px">maë</text>
-                    <circle cx="65%" cy="30%" r="8" fill="#1b4aba" />
-                    <circle cx="70%" cy="30%" r="8" fill="#1b4aba" />
-                  </svg>
-               </div>
-               <div className="footer-info">
-                  <div className="social-icons">
-                    {/* SVG placehoder icons */}
-                    <div className="icon-circle">IN</div>
-                    <div className="icon-circle">PI</div>
-                    <div className="icon-circle">IG</div>
-                  </div>
-                  <p>DESIGNED WITH LOVE BY<br/>MAË STUDIO</p>
-               </div>
+                <div className="footer-logo-massive">
+                  <img src="/assets/vidhi.svg" alt="Vidhi Studio" className="footer-logo-img" />
+                </div>
+                <div className="footer-info">
+                   <div className="social-icons">
+                     {/* SVG placehoder icons */}
+                     <div className="icon-circle">IN</div>
+                     <div className="icon-circle">PI</div>
+                     <div className="icon-circle">IG</div>
+                   </div>
+                   <p>DESIGNED WITH LOVE BY<br/>VIDHI STUDIO</p>
+                </div>
              </div>
           </div>
        </div>

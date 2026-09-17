@@ -1,0 +1,280 @@
+/* Contact Component Styles */
+.contact-component {
+  width: 100%;
+  background-color: var(--off-white, #faf9f6);
+  color: #1a1a1a;
+  overflow: hidden;
+}
+
+/* 1. Contact Hero Section */
+.contact-hero-section {
+  padding: 6rem 2rem 4rem 2rem;
+  border-bottom: 1px solid rgba(0, 85, 203, 0.2);
+  background-color: var(--off-white, #faf9f6);
+}
+
+.contact-hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4.5rem;
+}
+
+.contact-hero-left {
+  flex: 0 0 380px;
+}
+
+.contact-hero-divider {
+  width: 2px;
+  height: 480px;
+  background-color: var(--blue, #0055cb);
+  opacity: 0.8;
+}
+
+.contact-hero-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+}
+.contact-eyebrow {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--blue, #0055cb);
+  margin-bottom: 1rem;
+}
+
+.contact-hero-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--blue, #0055cb);
+  margin: 0 0 1.5rem 0;
+}
+
+.sparkle-icon {
+  display: inline-block;
+  animation: pulse-sparkle 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse-sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.15) rotate(12deg); }
+}
+
+.contact-hero-description {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 1.95rem;
+  line-height: 1.25;
+  color: var(--blue, #0055cb);
+  margin: 0 0 1.25rem 0;
+}
+
+.contact-hero-subtext {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #4a4a4b;
+  max-width: 580px;
+  margin: 0 0 2rem 0;
+}
+
+.contact-quick-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.contact-email-link {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--blue, #0055cb);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.contact-email-link:hover {
+  opacity: 0.75;
+}
+
+.contact-location-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  color: #727272;
+}
+
+
+.contact-photo-frame {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  border-radius: 12px;
+  overflow: visible;
+}
+
+.contact-portrait-img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 85, 203, 0.12);
+  border: 2px solid rgba(0, 85, 203, 0.2);
+  display: block;
+}
+
+.contact-floating-sticker {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  background-color: var(--yellow, #fffcbd);
+  color: var(--blue, #0055cb);
+  border: 2px solid var(--blue, #0055cb);
+  border-radius: 50px;
+  padding: 8px 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: rotate(-4deg);
+}
+
+/* 2. Interactive Form Section matching maedesign.es/work-with-me */
+.contact-form-section {
+  padding: 5rem 2rem;
+  background-color: var(--off-white, #faf9f6);
+}
+
+.contact-form-container {
+  max-width: 860px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 2px solid var(--blue, #0055cb);
+  border-radius: 20px;
+  padding: 3.5rem 2.5rem;
+  box-shadow: 0 16px 40px rgba(0, 85, 203, 0.08);
+  overflow: hidden;
+}
+
+.tally-embed-wrapper {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.tally-embed-wrapper::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.tally-iframe {
+  width: 100%;
+  border: none;
+  min-height: 1050px;
+  display: block;
+  overflow: hidden;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.tally-iframe::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+
+/* 3. Quote Ribbon Banner matching maedesign.es/work-with-me */
+.contact-quote-banner {
+  background-color: #fffcbd;
+  color: var(--blue, #0055cb);
+  padding: 5rem 2rem;
+  border-top: 2px solid var(--blue, #0055cb);
+  border-bottom: 2px solid var(--blue, #0055cb);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-quote-container {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.contact-quote-star-left,
+.contact-quote-star-right {
+  flex-shrink: 0;
+  animation: pulse-sparkle 3s ease-in-out infinite alternate;
+}
+
+.contact-quote-text {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 2.3rem;
+  line-height: 1.35;
+  color: var(--blue, #0055cb);
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contact-hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .contact-hero-title {
+    font-size: 2.8rem;
+  }
+
+  .contact-hero-description {
+    font-size: 1.6rem;
+  }
+
+  .contact-hero-subtext {
+    margin: 0 auto 2rem auto;
+  }
+
+  .contact-quick-info {
+    justify-content: center;
+  }
+
+  .contact-photo-frame {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .contact-form-container {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-quote-text {
+    font-size: 1.7rem;
+  }
+}

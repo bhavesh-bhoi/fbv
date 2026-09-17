@@ -1,0 +1,181 @@
+/* Discover My Works Section */
+.discover-works-section {
+  background-color: #cad8f8;
+  padding: 5rem 0 5.5rem 0;
+  border-top: 1px solid rgba(0, 85, 203, 0.2);
+  border-bottom: 1px solid rgba(0, 85, 203, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.discover-works-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 0 0 4rem;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+/* Left Heading & Button Area */
+.discover-works-left {
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 2;
+}
+
+.discover-title {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.08;
+  color: var(--blue, #0055cb);
+  margin: 0 0 2rem 0;
+  letter-spacing: -0.04em;
+  display: flex;
+  flex-direction: column;
+}
+
+.discover-line {
+  display: block;
+}
+
+.works-line {
+  display: inline-block;
+  position: relative;
+}
+
+.works-wavy-underline {
+  position: absolute;
+  left: 0;
+  bottom: -14px;
+  width: 100%;
+  max-width: 180px;
+  display: block;
+}
+
+.see-more-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--blue, #0055cb);
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 0.85rem 2.2rem;
+  border-radius: 40px;
+  text-decoration: none;
+  border: 2px solid var(--blue, #0055cb);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(0, 85, 203, 0.25);
+  cursor: pointer;
+}
+
+.see-more-btn:hover {
+  background-color: #003ea0;
+  border-color: #003ea0;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 85, 203, 0.35);
+  color: #ffffff;
+}
+
+/* Right Infinite Cards Marquee */
+.discover-works-right {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.works-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 1.5rem 0;
+}
+
+.works-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: max-content;
+  animation: worksMarqueeSlide 36s linear infinite;
+  will-change: transform;
+}
+
+.works-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes worksMarqueeSlide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 0.75rem));
+  }
+}
+
+/* Individual Work Card - Clean Image Card, No Text, No Hover Transition */
+.work-gallery-card {
+  flex: 0 0 255px;
+  width: 255px;
+  height: 350px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 30, 90, 0.12);
+  position: relative;
+  background-color: #e6edfa;
+  cursor: pointer;
+  user-select: none;
+}
+
+.card-thumb-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.card-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .discover-works-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 2rem;
+    gap: 2.5rem;
+  }
+
+  .discover-works-left {
+    flex: 0 0 auto;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .discover-title {
+    font-size: 2.6rem;
+  }
+
+  .discover-works-right {
+    width: 100%;
+  }
+
+  .work-gallery-card {
+    flex: 0 0 220px;
+    width: 220px;
+    height: 310px;
+  }
+}
