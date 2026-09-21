@@ -10,11 +10,10 @@ const Portfolio = () => {
       {/* Decorative Stickers */}
       <div className="sticker-container" data-aos="fade-down" data-aos-delay="100">
         <div className="sticker-yellow">
-          <svg viewBox="0 0 100 100" className="rotating-text">
+          <svg viewBox="0 0 100 100" className="rotating-text" aria-label="not just pretty, but smart">
             <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="none" />
             <text fill="#1b4aba" fontSize="11" fontWeight="bold">
               <textPath href="#circlePath" startOffset="0%">not just pretty, but smart •</textPath>
-              <textPath href="#circlePath" startOffset="50%">not just pretty, but smart •</textPath>
             </text>
           </svg>
           <div className="sticker-yellow-center">★</div>

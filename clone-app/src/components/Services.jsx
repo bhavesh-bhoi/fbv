@@ -108,16 +108,16 @@ const Services = () => {
           <div className="striped-text">
             <h2>
               <span className="circled-text">
-                strategic,
+                thoughtful,
                 <svg className="circle-draw" viewBox="0 0 100 40" preserveAspectRatio="none">
                   <ellipse cx="50" cy="20" rx="45" ry="15" stroke="#0055cb" strokeWidth="2" fill="none" />
                 </svg>
               </span>
-              {' intentional and never'}
+              {' playful and always intentional.'}
               <br />
-              {'generic. every brand is built from'}
+              {'I design with curiosity, simplicity and a little personality —'}
               <br />
-              {'its essence — yours included'}
+              {'turning ideas into visuals that feel as good as they look.'}
             </h2>
           </div>
           <svg className="sparkle" width="30" height="40" viewBox="0 0 30 40">
@@ -133,12 +133,12 @@ const Services = () => {
 
       {/* Running Marquee Ribbon 1: BOOKS OPEN */}
       <div className="ticker-ribbon ticker-blue" data-aos="fade-up" data-aos-duration="600">
-        <div className="ticker-track">
+        <div className="ticker-track ticker-track-rtl">
           <span className="serif">
-            BOOKS OPEN • BOOK YOUR SPOT FOR Q1 • ONLY 2 SPOTS LEFT • BOOKS OPEN • BOOK YOUR SPOT FOR Q1 • ONLY 2 SPOTS LEFT • BOOKS OPEN • BOOK YOUR SPOT FOR Q1 • ONLY 2 SPOTS LEFT • BOOKS OPEN • BOOK YOUR SPOT FOR Q1 • ONLY 2 SPOTS LEFT • 
+            BOOK YOUR OCTOBER SLOTS NOW • BOOK YOUR OCTOBER SLOTS NOW • BOOK YOUR OCTOBER SLOTS NOW • BOOK YOUR OCTOBER SLOTS NOW • BOOK YOUR OCTOBER SLOTS NOW •
           </span>
-          <span className="serif">
-            BOOKS OPEN • BOOK YOUR SPOT FOR Q1 • ONLY 2 SPOTS LEFT • BOOKS OPEN • BOOK YOUR SPOT FOR Q1 • ONLY 2 SPOTS LEFT • BOOKS OPEN • BOOK YOUR SPOT FOR Q1 • ONLY 2 SPOTS LEFT • BOOKS OPEN • BOOK YOUR SPOT FOR Q1 • ONLY 2 SPOTS LEFT • 
+          <span className="serif" aria-hidden="true">
+            BOOK YOUR OCTOBER SLOTS NOW • BOOK YOUR OCTOBER SLOTS NOW • BOOK YOUR OCTOBER SLOTS NOW • BOOK YOUR OCTOBER SLOTS NOW • BOOK YOUR OCTOBER SLOTS NOW •
           </span>
         </div>
       </div>

@@ -1,6 +1,6 @@
 :root {
   --blue: #1b4aba; /* royal blue primary */
-  --light-blue: #cbe2f4; /* hero background left */
+  --light-blue: rgb(201 216 247); /* hero background left */
   --yellow: #fbf5c6; /* about bg / button bg */
   --off-white: #fdfdfa; /* grid background */
   
@@ -126,11 +126,13 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 3rem;
-  position: absolute;
+  padding: 1.1rem 2.5rem 1rem;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 100;
+  background: var(--light-blue);
+  border-bottom: 2px solid var(--blue);
 }
 .navbar-left {
   flex: 1;
@@ -144,7 +146,7 @@ img {
   align-items: center;
 }
 .nav-logo-img {
-  height: 40px;
+  height: 52px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -158,13 +160,13 @@ img {
   flex: 1;
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 .navbar-center a {
   text-transform: uppercase;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.04em;
 }
 .navbar-right {
   flex: 1;
@@ -173,6 +175,10 @@ img {
 }
 
 @media (max-width: 900px) {
+  .navbar {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
   .navbar-center {
     display: none;
   }

@@ -91,7 +91,7 @@ const Contact = () => {
             <path d="M12 0 Q12 12 24 12 Q12 12 12 24 Q12 12 0 12 Q12 12 12 0 Z" />
           </svg>
           <h2 className="contact-quote-text">
-            strategic, intentional and never generic. every brand is built from its essence — yours included
+            thoughtful, playful and always intentional. I design with curiosity, simplicity and a little personality — turning ideas into visuals that feel as good as they look.
           </h2>
           <svg className="contact-quote-star-right" width="36" height="36" viewBox="0 0 24 24" fill="#0055cb">
             <path d="M12 0 Q12 12 24 12 Q12 12 12 24 Q12 12 0 12 Q12 12 12 0 Z" />

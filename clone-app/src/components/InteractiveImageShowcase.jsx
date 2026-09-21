@@ -6,8 +6,8 @@ import './InteractiveImageShowcase.css';
 export const PROJECTS_DATA = [
   {
     id: 'mosi-skin',
-    title: 'Mosi Skin',
-    displayTitle: 'Mosi Skin',
+    title: 'Tropez',
+    displayTitle: 'Tropez',
     isSerif: false,
     cards: [
       {
@@ -92,8 +92,8 @@ export const PROJECTS_DATA = [
   },
   {
     id: 'pretty-baby-things',
-    title: 'PRETTY BABY THINGS',
-    displayTitle: 'PRETTY BABY THINGS',
+    title: 'Brew Studio',
+    displayTitle: 'Brew Studio',
     isSerif: true,
     cards: [
       {
@@ -169,8 +169,8 @@ export const PROJECTS_DATA = [
   },
   {
     id: 'inner-matter',
-    title: 'Inner Matter',
-    displayTitle: 'INNER MATTER',
+    title: 'Brownie Bloom',
+    displayTitle: 'Brownie Bloom',
     isSerif: true,
     cards: [
       {
@@ -266,8 +266,8 @@ export const PROJECTS_DATA = [
   },
   {
     id: 'shared-ground',
-    title: 'SHARED GROUND',
-    displayTitle: 'SHARED GROUND',
+    title: 'Wild Bloom',
+    displayTitle: 'Wild Bloom',
     isSerif: true,
     cards: [
       {
@@ -339,8 +339,8 @@ export const PROJECTS_DATA = [
   },
   {
     id: 'bare-earth',
-    title: 'Bare Earth',
-    displayTitle: 'Bare Earth',
+    title: 'Life OS',
+    displayTitle: 'Life OS',
     isSerif: true,
     cards: [
       {
@@ -467,13 +467,7 @@ const InteractiveImageShowcase = ({
               whileTap={{ scale: 0.98 }}
               transition={{ type: 'spring', stiffness: 400, damping: 25 }}
             >
-              {isActive
-                ? proj.id === 'inner-matter'
-                  ? 'INNER MATTER'
-                  : proj.id === 'mosi-skin'
-                  ? 'Mosi Skin'
-                  : proj.title
-                : proj.title}
+              {isActive ? proj.displayTitle || proj.title : proj.title}
             </motion.button>
           );
         })}
