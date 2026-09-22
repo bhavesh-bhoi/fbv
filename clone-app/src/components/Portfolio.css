@@ -1,5 +1,9 @@
 .portfolio-section {
   background-color: var(--off-white);
+  background-image: 
+    linear-gradient(rgba(27, 74, 186, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27, 74, 186, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
   padding: 4rem 2rem 8rem;
   position: relative;
 }

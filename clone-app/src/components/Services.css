@@ -8,13 +8,11 @@
 
 /* Striped Quote Background */
 .striped-section {
-  background: repeating-linear-gradient(
-    90deg,
-    var(--off-white),
-    var(--off-white) 25px,
-    rgb(201 216 247) 25px,
-    rgb(201 216 247) 50px
-  );
+  background: repeating-linear-gradient(90deg,
+      var(--off-white),
+      var(--off-white) 25px,
+      rgb(201 216 247) 25px,
+      rgb(201 216 247) 50px);
   padding: calc(5rem + 30px) 1.5rem calc(5rem + 30px);
   border-top: 2px solid var(--blue);
   border-bottom: 2px solid var(--blue);
@@ -123,47 +121,105 @@
 }
 
 @keyframes marqueeSlide {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes marqueeSlideRtl {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes marqueeSlideReverse {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0%); }
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
 }
 
-/* Grid Background */
-.services-grid-section {
+/* =========================================================
+   SPLIT SERVICES SECTION MATCHING IMAGE 1 REFERENCE
+   ========================================================= */
+
+.services-split-section {
+  display: flex;
+  position: relative;
+  width: 100%;
+  border-top: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
+  overflow: visible;
+}
+
+/* Center Top Tilted Sticker Overlapping Dividing Line (Image 1) */
+.services-divider-sticker-wrap {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-13deg);
+  z-index: 30;
+  pointer-events: auto;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.services-divider-sticker-wrap:hover {
+  transform: translateX(-50%) rotate(-6deg) scale(1.06);
+}
+
+.services-divider-sticker {
+  width: 165px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 6px 18px rgba(0, 85, 203, 0.28));
+}
+
+/* Left Half: Graph paper grid background */
+.services-split-left {
+  flex: 1;
   background-color: var(--off-white);
-  background-image: 
+  background-image:
     linear-gradient(rgba(27, 74, 186, 0.08) 1px, transparent 1px),
     linear-gradient(90deg, rgba(27, 74, 186, 0.08) 1px, transparent 1px);
   background-size: 40px 40px;
-  padding: 6.5rem 2rem;
-}
-
-.services-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  border-right: 2px solid var(--blue);
   display: flex;
-  align-items: flex-start;
-  gap: 5rem;
+  justify-content: flex-end;
+  padding: 5.5rem 4.5rem 5.5rem 3rem;
+  position: relative;
+  z-index: 5;
 }
 
-.services-left {
-  flex: 1;
+.services-left-inner {
+  max-width: 580px;
+  width: 100%;
 }
 
-.services-left h2 {
-  font-size: 3.4rem;
-  line-height: 1.1;
-  margin-bottom: 3.5rem;
+.services-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3.2rem;
+  position: relative;
+}
+
+.services-title {
+  font-size: clamp(2.4rem, 3.2vw, 3.5rem);
+  line-height: 1.08;
   color: var(--blue);
+  letter-spacing: -0.02em;
+  margin: 0;
 }
 
 .services-accent-underline {
@@ -172,6 +228,18 @@
   text-underline-offset: 6px;
 }
 
+.services-finger-heart {
+  flex-shrink: 0;
+  margin-bottom: 0.2rem;
+  margin-right: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.services-finger-heart:hover {
+  transform: scale(1.1) rotate(4deg);
+}
+
+/* Accordion */
 .accordion {
   list-style: none;
   width: 100%;
@@ -181,7 +249,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.4rem 0;
+  padding: 1.35rem 0;
   border-bottom: 1.5px solid var(--blue);
   cursor: pointer;
   transition: all 0.25s ease;
@@ -221,22 +289,60 @@
   transform: translateX(4px);
 }
 
-/* Service Card on the Right */
-.services-right {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
+.services-book-btn {
+  margin-top: 3.2rem;
 }
 
+/* Right Half: Studio Photo Background with Floating Card */
+.services-split-right {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 3rem;
+  background-color: #efefef;
+}
+
+.services-photo-bg-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.services-photo-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: grayscale(100%) brightness(1.04) contrast(0.96);
+  transform: scale(1.02);
+}
+
+.services-card-wrap {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Service Card on the Right matching Image 1 */
 .service-card {
-  background: linear-gradient(145deg, #d2e4f7 0%, #bdd9f5 100%);
-  border-radius: 30px;
-  padding: 3.2rem 2.5rem;
+  background: linear-gradient(145deg, #d8e8fc 0%, #c4dcf8 100%);
+  border-radius: 28px;
+  padding: 3.2rem 2.4rem;
   width: 100%;
   max-width: 440px;
   text-align: center;
-  box-shadow: 0 20px 45px rgba(27, 74, 186, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 20px 45px rgba(27, 74, 186, 0.16), 0 5px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
 }
 
 .card-icon {
@@ -317,21 +423,58 @@
   opacity: 0.75;
 }
 
+.pill-info .val {
+  white-space: nowrap;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .services-split-left {
+    padding: 4.5rem 2.5rem;
+  }
+
+  .services-split-right {
+    padding: 4.5rem 2rem;
+  }
+
+  .services-divider-sticker {
+    width: 135px;
+  }
+}
+
 @media (max-width: 900px) {
-  .services-container {
+  .services-split-section {
     flex-direction: column;
-    gap: 3.5rem;
   }
-  .services-right {
+
+  .services-split-left {
+    border-right: none;
+    border-bottom: 2px solid var(--blue);
+    padding: 4rem 1.5rem 3.5rem;
     justify-content: center;
-    width: 100%;
   }
+
+  .services-left-inner {
+    max-width: 100%;
+  }
+
+  .services-divider-sticker-wrap {
+    display: none;
+  }
+
+  .services-split-right {
+    min-height: 580px;
+    padding: 4rem 1.5rem;
+  }
+
   .service-card {
     max-width: 100%;
   }
-  .services-left h2 {
+
+  .services-title {
     font-size: 2.5rem;
   }
+
   .accordion-item h3 {
     font-size: 1.7rem;
   }

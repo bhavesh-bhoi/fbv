@@ -4,91 +4,107 @@ import './Services.css';
 
 const SERVICES_DATA = [
   {
-    id: 'starter-brand',
-    name: 'starter brand',
-    isSerif: false,
-    subtitle: 'For brands ready to build something aligned, strategic and fully their own.',
+    id: 'website-designing',
+    name: 'website designing',
+    subtitle: "Clean, modern websites designed to make your brand look credible and your users' journey feel effortless.",
     deliverables: [
-      '2 creative directions',
-      'Primary, secondary & logo variations',
-      'Curated color palette',
-      'Typography selection & hierarchy',
-      'Photographic mood & art direction',
-      'Complete brand style board',
+      'Website structure & sitemap',
+      'Custom website UI in Figma',
+      'Desktop + mobile responsive design',
+      'User flow & basic UX',
+      'Interactive prototype',
+      'Development-ready files',
       '2 revision rounds included',
     ],
-    timeline: '1-2 Weeks',
-    investment: '750€',
+    timeline: '3–5 Weeks',
+    investment: 'from ₹25K',
   },
   {
-    id: 'signature-brand',
-    name: 'signature brand',
-    isSerif: true,
-    subtitle: 'Comprehensive brand identity crafted for established businesses looking to elevate.',
+    id: 'branding',
+    name: 'branding',
+    subtitle: 'A distinctive visual identity that makes your brand recognizable, consistent, and memorable.',
     deliverables: [
-      '3 bespoke creative directions',
-      'Full logo suite & brand marks',
-      'Custom color system & typography',
-      'Detailed 35+ page Brand Guidelines',
-      'Stationery & print collateral suite',
-      'Social media launch templates',
-      'Unlimited refinement rounds',
+      'Brand discovery & creative direction',
+      '2–3 logo concepts',
+      'Primary & secondary logo variations',
+      'Color palette & typography selection',
+      'Supporting visual elements',
+      'Mini brand guidelines',
+      '2 revision rounds included',
     ],
-    timeline: '3-4 Weeks',
-    investment: '1.350€',
+    timeline: '2–4 Weeks',
+    investment: 'from ₹15K',
   },
   {
-    id: 'full-brand-experience',
-    name: 'full brand experience',
-    isSerif: true,
-    subtitle: 'The all-inclusive visual transformation: branding, packaging, and custom website.',
+    id: 'social-media-designing',
+    name: 'social media designing',
+    subtitle: 'Consistent, scroll-stopping visuals that give your brand a strong and recognizable online presence.',
     deliverables: [
-      'Complete signature branding suite',
-      'Custom Showit / Webflow website design',
-      'Full packaging design & mockups',
-      'Marketing collateral & launch kit',
-      'Complete art & photo direction guide',
-      '30-day post-launch support & handoff',
+      'Instagram post designs (10–12 designs)',
+      'Carousel templates',
+      'Story designs & reel covers',
+      'Highlight covers & stickers',
+      'Visual aesthetic direction',
+      'Canva & Figma editable templates',
+      '2 revision rounds included',
     ],
-    timeline: '5-6 Weeks',
-    investment: '2.250€',
+    timeline: '1–2 Weeks',
+    investment: 'from ₹5K',
   },
   {
-    id: 'packaging',
-    name: 'packaging',
-    isSerif: true,
-    subtitle: 'Tangible, luxurious packaging design that captivates on shelf and unboxing.',
+    id: 'ui-ux-design',
+    name: 'UI/UX design',
+    subtitle: 'Thoughtful digital experiences that balance usability, functionality, and visual design.',
     deliverables: [
-      'Custom packaging & dieline setup',
-      'Box, pouch, label, or vessel design',
-      'Print-ready high-res production files',
-      'Sustainable material consultation',
-      'Photorealistic 3D renders & mockups',
-      'Direct printer coordination support',
+      'User flows & low-fidelity wireframes',
+      'High-fidelity UI screens',
+      'Desktop & mobile responsive layouts',
+      'Interactive Figma prototype',
+      'Basic design system & components',
+      'Developer handoff files',
+      '2 revision rounds included',
     ],
-    timeline: '2-3 Weeks',
-    investment: 'from 120€',
+    timeline: '2–4 Weeks',
+    investment: 'from ₹20K',
   },
   {
-    id: 'social-media',
-    name: 'social media',
-    isSerif: true,
-    subtitle: 'Elevated digital presence with customizable, high-conversion visual templates.',
+    id: 'video-editing',
+    name: 'video editing',
+    subtitle: 'Short-form edits that turn raw footage into polished, engaging content.',
     deliverables: [
-      'Custom Instagram templates suite',
-      'Story, reel cover & carousel layouts',
-      'Instagram grid aesthetic direction',
-      'Custom highlight covers & stickers',
-      'Typography & color styling guide',
-      'Canva & Figma editable files',
+      'Instagram Reels & YouTube Shorts',
+      'Clean cuts & transitions',
+      'Captions & text animation',
+      'Music & sound syncing',
+      'Basic color correction',
+      'Motion effects & graphics',
+      '2 revision rounds included',
     ],
-    timeline: '1 Week',
-    investment: 'from 120€',
+    timeline: '2–5 Business Days',
+    investment: 'from ₹750/video',
+  },
+  {
+    id: 'youtube-editing',
+    name: 'YouTube editing',
+    subtitle: 'Long-form edits that keep your content engaging, structured, and easy to watch.',
+    deliverables: [
+      'YouTube long-form editing',
+      'Clean cuts & pacing',
+      'Strategic B-roll placement',
+      'Text & animated captions',
+      'Transitions & effects',
+      'Music & sound design',
+      'Basic color correction',
+      'Thumbnail-ready frame export',
+      '2 revision rounds included',
+    ],
+    timeline: '3–7 Business Days',
+    investment: 'from ₹3K/video',
   },
 ];
 
 const Services = () => {
-  const [activeServiceId, setActiveServiceId] = useState('starter-brand');
+  const [activeServiceId, setActiveServiceId] = useState('website-designing');
   const activeService = SERVICES_DATA.find((s) => s.id === activeServiceId) || SERVICES_DATA[0];
 
   return (
@@ -143,15 +159,28 @@ const Services = () => {
         </div>
       </div>
 
-      {/* Grid Services Section */}
-      <div className="services-grid-section">
-        <div className="services-container" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
-          <div className="services-left">
-            <h2>
-              where <span className="serif services-accent-underline">creativity</span>
-              <br />
-              meets your needs
-            </h2>
+      {/* Split Services Section matching Image 1 reference */}
+      <div className="services-split-section">
+        {/* Center Top Divider Sticker (Image 1) */}
+        <div className="services-divider-sticker-wrap" aria-hidden="true">
+          <img
+            src="/assets/2.svg"
+            alt="Built from your essence - Vidhi Creative Design Studio"
+            className="services-divider-sticker"
+          />
+        </div>
+
+        {/* Left Half: Grid Pattern, Header, Finger Heart, & Accordion */}
+        <div className="services-split-left">
+          <div className="services-left-inner" data-aos="fade-right" data-aos-duration="850">
+
+            <div className="services-header-row">
+              <h2 className="services-title">
+                where <span className="serif services-accent-underline">creativity</span>
+                <br />
+                meets your needs
+              </h2>
+            </div>
 
             <ul className="accordion">
               {SERVICES_DATA.map((service) => {
@@ -169,12 +198,24 @@ const Services = () => {
               })}
             </ul>
 
-            <a href="#contact" className="btn-pill btn-yellow" style={{ marginTop: '3rem' }}>
+            <a href="#contact" className="btn-pill btn-yellow services-book-btn">
               BOOK IT!
             </a>
+
+          </div>
+        </div>
+
+        {/* Right Half: Studio Photo Background & Floating Service Card */}
+        <div className="services-split-right">
+          <div className="services-photo-bg-wrap" aria-hidden="true">
+            <img
+              src="/assets/about_studio_texture.jpg"
+              alt="Studio background"
+              className="services-photo-bg"
+            />
           </div>
 
-          <div className="services-right">
+          <div className="services-card-wrap" data-aos="fade-left" data-aos-duration="850">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeService.id}
@@ -184,16 +225,14 @@ const Services = () => {
                 exit={{ opacity: 0, y: -15, scale: 0.98 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 26 }}
               >
+                {/* Double Sparkle Stars Icon matching Image 1 */}
                 <div className="card-icon">
-                  <svg width="24" height="40" viewBox="0 0 24 40">
-                    <path
-                      d="M12 2L2 20H12L10 38L22 16H12L12 2Z"
-                      stroke="#0055cb"
-                      strokeWidth="2"
-                      fill="none"
-                    />
+                  <svg width="34" height="40" viewBox="0 0 34 40" fill="none" stroke="#0055cb" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M15 2 C15 10, 19 14, 27 14 C19 14, 15 18, 15 26 C15 18, 11 14, 3 14 C11 14, 15 10, 15 2 Z" />
+                    <path d="M24 24 C24 28, 26 30, 30 30 C26 30, 24 32, 24 36 C24 32, 22 30, 18 30 C22 30, 24 28, 24 24 Z" />
                   </svg>
                 </div>
+
                 <h3 className="card-title">{activeService.name}</h3>
                 <p className="card-subtitle">{activeService.subtitle}</p>
 
@@ -211,10 +250,12 @@ const Services = () => {
                     <span className="label">Timeline:</span>
                     <span className="val">{activeService.timeline}</span>
                   </div>
-                  <div className="pill-info dark">
-                    <span className="label">Investment:</span>
-                    <span className="val">{activeService.investment}</span>
-                  </div>
+                  {activeService.investment && (
+                    <div className="pill-info dark">
+                      <span className="label">Investment:</span>
+                      <span className="val">{activeService.investment}</span>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -226,10 +267,10 @@ const Services = () => {
       <div className="ticker-ribbon ticker-light">
         <div className="ticker-track ticker-reverse">
           <span>
-            ILLUSTRATION • WEB DESIGN • BRANDING • PACKAGING • SOCIAL MEDIA • ART DIRECTION • CREATIVE DIRECTION • 
+            WEBSITE DESIGN • BRANDING • SOCIAL MEDIA • UI/UX DESIGN • VIDEO EDITING • YOUTUBE EDITING • WEBSITE DESIGN • BRANDING • SOCIAL MEDIA • UI/UX DESIGN • VIDEO EDITING • YOUTUBE EDITING •
           </span>
           <span>
-            ILLUSTRATION • WEB DESIGN • BRANDING • PACKAGING • SOCIAL MEDIA • ART DIRECTION • CREATIVE DIRECTION • 
+            WEBSITE DESIGN • BRANDING • SOCIAL MEDIA • UI/UX DESIGN • VIDEO EDITING • YOUTUBE EDITING • WEBSITE DESIGN • BRANDING • SOCIAL MEDIA • UI/UX DESIGN • VIDEO EDITING • YOUTUBE EDITING •
           </span>
         </div>
       </div>
