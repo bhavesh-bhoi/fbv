@@ -4,31 +4,31 @@ import './About.css';
 const About = () => {
   return (
     <section id="about" className="about-wrapper-outer">
-      
+
 
       {/* Main Yellow About Section matching user reference Image 2 */}
       <div className="about-main-section">
         <div className="about-content-container">
-          
+
           {/* Left Column: Overlapping Studio Photos & Disco Ball Doodle */}
           <div className="about-photos-column" data-aos="fade-right" data-aos-duration="900">
             <div className="about-photo-composition">
-              
-              {/* Back Photo: Maëva in white t-shirt working on laptop */}
+
+              {/* Back Photo: Vidhi in black t-shirt working on laptop */}
               <div className="photo-card card-back">
                 <img
-                  src="/assets/maeva_white_tee.jpg"
-                  alt="Maëva working on laptop"
+                  src="/assets/vidhi_black_tee.png"
+                  alt="Vidhi working on laptop"
                   className="photo-img"
                   loading="lazy"
                 />
               </div>
 
-              {/* Front Photo: Maëva in black vest holding laptop smiling */}
+              {/* Front Photo: Vidhi in black vest holding laptop smiling */}
               <div className="photo-card card-front">
                 <img
-                  src="/assets/maeva_black_vest.jpg"
-                  alt="Maëva boukhetache brand designer"
+                  src="/assets/vidhi_black_vest.png"
+                  alt="Vidhi brand designer"
                   className="photo-img"
                   loading="lazy"
                 />
@@ -50,7 +50,7 @@ const About = () => {
                 >
                   {/* Outer circle */}
                   <circle cx="50" cy="50" r="42" stroke="#0055cb" strokeWidth="3" fill="#ffffff" fillOpacity="0.1" />
-                  
+
                   {/* Horizontal grid curved lines */}
                   <ellipse cx="50" cy="50" rx="42" ry="14" stroke="#0055cb" strokeWidth="2.2" fill="none" />
                   <ellipse cx="50" cy="50" rx="42" ry="28" stroke="#0055cb" strokeWidth="2.2" fill="none" />
@@ -95,12 +95,11 @@ const About = () => {
 
           {/* Right Column: Typography & Bio matching reference Image 2 */}
           <div className="about-bio-column" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
-            
+
             <div className="about-heading-row">
-              <span className="hi-pill-badge">hi,</span>
               <h2 className="about-main-headline">
-                I’m Maëva —<br />
-                your branding <span className="bestie-serif">
+                hi, I’m Vidhi —<br />
+                your design <span className="bestie-serif">
                   bestie
                   <svg
                     className="bestie-wavy-underline"
@@ -116,13 +115,6 @@ const About = () => {
                       strokeWidth="2.8"
                       strokeLinecap="round"
                     />
-                    <path
-                      d="M6 11 C 18 5, 28 17, 40 11 C 52 5, 62 17, 74 11 C 86 5, 96 17, 108 11"
-                      stroke="#0055cb"
-                      strokeWidth="1.6"
-                      strokeLinecap="round"
-                      opacity="0.8"
-                    />
                   </svg>
                 </span>
               </h2>
@@ -130,13 +122,13 @@ const About = () => {
 
             <div className="about-paragraphs-area">
               <p className="about-p">
-                I help you turn your ideas into a brand that actually feels like you.
+                I help turn your ideas into designs that feel like you.
               </p>
               <p className="about-p">
-                I work with entrepreneurs and personal brands who want more than just “pretty design” — they want something intentional, cohesive and full of personality.
+                I work with creators, entrepreneurs, and growing brands who want more than just something that looks good — they want design that feels intentional, memorable, and true to their vision.
               </p>
               <p className="about-p">
-                Together, we build brands that feel aligned, look elevated, and truly stand out in a way that makes sense for you.
+                From UI/UX and web design to graphics, branding, and video, I bring ideas together into visuals that feel cohesive, polished, and full of personality.
               </p>
             </div>
 

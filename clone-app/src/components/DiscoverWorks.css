@@ -25,6 +25,7 @@
   align-items: flex-start;
   justify-content: center;
   z-index: 2;
+  user-select: none;
 }
 
 .discover-title {
@@ -84,7 +85,7 @@
   color: #ffffff;
 }
 
-/* Right Infinite Cards Marquee */
+/* Right Infinite Cards Drag Scroller (No Auto Scroll) */
 .discover-works-right {
   flex: 1;
   min-width: 0;
@@ -92,36 +93,29 @@
   overflow: hidden;
 }
 
-.works-marquee-container {
+.works-drag-container {
   width: 100%;
   overflow: hidden;
   position: relative;
   padding: 1.5rem 0;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
 }
 
-.works-marquee-track {
+.works-drag-container.is-dragging {
+  cursor: grabbing;
+}
+
+.works-drag-track {
   display: flex;
   align-items: center;
   gap: 1.5rem;
   width: max-content;
-  animation: worksMarqueeSlide 36s linear infinite;
   will-change: transform;
 }
 
-.works-marquee-track:hover {
-  animation-play-state: paused;
-}
-
-@keyframes worksMarqueeSlide {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-50% - 0.75rem));
-  }
-}
-
-/* Individual Work Card - Clean Image Card, No Text, No Hover Transition */
+/* Individual Work Card - Clean Image Card, No Text */
 .work-gallery-card {
   flex: 0 0 255px;
   width: 255px;
@@ -131,8 +125,14 @@
   box-shadow: 0 8px 24px rgba(0, 30, 90, 0.12);
   position: relative;
   background-color: #e6edfa;
-  cursor: pointer;
+  cursor: inherit;
   user-select: none;
+  -webkit-user-drag: none;
+  transition: transform 0.25s ease;
+}
+
+.work-gallery-card:hover {
+  transform: translateY(-4px);
 }
 
 .card-thumb-wrap {
@@ -141,6 +141,7 @@
   position: relative;
   overflow: hidden;
   border-radius: 14px;
+  pointer-events: none;
 }
 
 .card-thumb-img {
@@ -148,6 +149,9 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* Responsive adjustments */

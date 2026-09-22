@@ -1,161 +1,104 @@
-/* Contact Component Styles */
+/* Contact Component Styles matching https://maedesign.es/work-with-me */
+
 .contact-component {
   width: 100%;
-  background-color: var(--off-white, #faf9f6);
-  color: #1a1a1a;
-  overflow: hidden;
+  background-color: #faf9f6;
+  position: relative;
 }
 
-/* 1. Contact Hero Section */
+/* =========================================================
+   1. HERO SECTION (new-canvas)
+========================================================= */
 .contact-hero-section {
-  padding: 6rem 2rem 4rem 2rem;
-  border-bottom: 1px solid rgba(0, 85, 203, 0.2);
-  background-color: var(--off-white, #faf9f6);
+  background-color: #c9d8f7;
+  border-bottom: 2px solid var(--blue, #0055cb);
+  padding: 5.5rem 2rem 5rem 2rem;
+  position: relative;
 }
 
 .contact-hero-container {
-  max-width: 1200px;
+  max-width: 1180px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   gap: 4.5rem;
 }
 
+/* Left Column: Got something in mind? */
 .contact-hero-left {
-  flex: 0 0 380px;
-}
-
-.contact-hero-divider {
-  width: 2px;
-  height: 480px;
-  background-color: var(--blue, #0055cb);
-  opacity: 0.8;
-}
-
-.contact-hero-right {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   justify-content: center;
-  min-width: 0;
-}
-.contact-eyebrow {
-  display: inline-block;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  color: var(--blue, #0055cb);
-  margin-bottom: 1rem;
 }
 
 .contact-hero-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 3.5rem;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 3.2rem;
   font-weight: 800;
-  line-height: 1.05;
+  line-height: 1.1;
   letter-spacing: -0.04em;
   color: var(--blue, #0055cb);
-  margin: 0 0 1.5rem 0;
+  margin-bottom: 1.75rem;
 }
 
-.sparkle-icon {
-  display: inline-block;
-  animation: pulse-sparkle 2.5s infinite ease-in-out;
-}
-
-@keyframes pulse-sparkle {
-  0%, 100% { transform: scale(1) rotate(0deg); }
-  50% { transform: scale(1.15) rotate(12deg); }
-}
-
-.contact-hero-description {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-style: italic;
-  font-size: 1.95rem;
-  line-height: 1.25;
+.contact-hero-lead {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.5;
   color: var(--blue, #0055cb);
-  margin: 0 0 1.25rem 0;
+  margin-bottom: 1rem;
 }
 
 .contact-hero-subtext {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.05rem;
+  font-weight: 400;
   line-height: 1.7;
-  color: #4a4a4b;
-  max-width: 580px;
-  margin: 0 0 2rem 0;
-}
-
-.contact-quick-info {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.contact-email-link {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 1.05rem;
   color: var(--blue, #0055cb);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  transition: opacity 0.2s ease;
+  max-width: 500px;
+  margin: 0;
 }
 
-.contact-email-link:hover {
-  opacity: 0.75;
+/* Vertical Divider Line */
+.contact-hero-divider {
+  width: 2px;
+  height: 440px;
+  background-color: var(--blue, #0055cb);
+  flex-shrink: 0;
 }
 
-.contact-location-tag {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-  color: #727272;
+/* Right Column: Photo of Maëva */
+.contact-hero-right {
+  flex: 0 0 440px;
+  display: flex;
+  justify-content: center;
 }
-
 
 .contact-photo-frame {
-  position: relative;
   width: 100%;
-  max-width: 380px;
+  height: 480px;
   border-radius: 12px;
-  overflow: visible;
+  overflow: hidden;
+  box-shadow: 0 14px 36px rgba(0, 50, 140, 0.12);
+  border: 1.5px solid rgba(0, 85, 203, 0.15);
 }
 
 .contact-portrait-img {
   width: 100%;
-  height: 440px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 12px 30px rgba(0, 85, 203, 0.12);
-  border: 2px solid rgba(0, 85, 203, 0.2);
   display: block;
 }
 
-.contact-floating-sticker {
-  position: absolute;
-  bottom: -20px;
-  right: -20px;
-  background-color: var(--yellow, #fffcbd);
-  color: var(--blue, #0055cb);
-  border: 2px solid var(--blue, #0055cb);
-  border-radius: 50px;
-  padding: 8px 18px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transform: rotate(-4deg);
-}
-
-/* 2. Interactive Form Section matching maedesign.es/work-with-me */
+/* =========================================================
+   2. INTERACTIVE TALLY FORM SECTION
+========================================================= */
 .contact-form-section {
-  padding: 5rem 2rem;
-  background-color: var(--off-white, #faf9f6);
+  padding: 5.5rem 2rem 6rem 2rem;
+  background-color: #faf9f6;
+  position: relative;
 }
 
 .contact-form-container {
@@ -166,44 +109,47 @@
   border-radius: 20px;
   padding: 3.5rem 2.5rem;
   box-shadow: 0 16px 40px rgba(0, 85, 203, 0.08);
-  overflow: hidden;
+  position: relative;
+}
+
+.contact-floating-sticker {
+  position: absolute;
+  top: -18px;
+  right: 28px;
+  background-color: #fffcbd;
+  color: var(--blue, #0055cb);
+  border: 1.5px solid var(--blue, #0055cb);
+  border-radius: 50px;
+  padding: 6px 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transform: rotate(6deg);
+  box-shadow: 0 4px 12px rgba(0, 50, 140, 0.12);
 }
 
 .tally-embed-wrapper {
   width: 100%;
   border-radius: 12px;
   overflow: hidden;
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
-}
-
-.tally-embed-wrapper::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
 }
 
 .tally-iframe {
   width: 100%;
   border: none;
-  min-height: 1050px;
+  min-height: 1000px;
   display: block;
   overflow: hidden;
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
 }
 
-.tally-iframe::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-}
-
-
-/* 3. Quote Ribbon Banner matching maedesign.es/work-with-me */
+/* =========================================================
+   3. ROYAL BLUE QUOTE BANNER (quote-2)
+========================================================= */
 .contact-quote-banner {
-  background-color: #fffcbd;
-  color: var(--blue, #0055cb);
+  background-color: var(--blue, #0055cb);
+  color: #fffcbd;
   padding: 5rem 2rem;
   border-top: 2px solid var(--blue, #0055cb);
   border-bottom: 2px solid var(--blue, #0055cb);
@@ -212,7 +158,7 @@
 }
 
 .contact-quote-container {
-  max-width: 980px;
+  max-width: 960px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -228,53 +174,69 @@
   animation: pulse-sparkle 3s ease-in-out infinite alternate;
 }
 
-.contact-quote-text {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-style: italic;
-  font-size: 2.3rem;
-  line-height: 1.35;
-  color: var(--blue, #0055cb);
-  margin: 0;
+@keyframes pulse-sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.15) rotate(10deg); }
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+.contact-quote-text {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  font-size: 1.85rem;
+  line-height: 1.35;
+  color: #fffcbd;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 1024px) {
   .contact-hero-container {
-    grid-template-columns: 1fr;
-    text-align: center;
+    flex-direction: column;
+    align-items: center;
     gap: 3rem;
+    text-align: center;
   }
 
-  .contact-hero-title {
-    font-size: 2.8rem;
+  .contact-hero-divider {
+    display: none;
   }
 
-  .contact-hero-description {
-    font-size: 1.6rem;
+  .contact-hero-left {
+    align-items: center;
   }
 
   .contact-hero-subtext {
-    margin: 0 auto 2rem auto;
+    margin: 0 auto;
   }
 
-  .contact-quick-info {
-    justify-content: center;
+  .contact-hero-right {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 400px;
   }
 
   .contact-photo-frame {
-    max-width: 300px;
-    margin: 0 auto;
+    height: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-hero-title {
+    font-size: 2.3rem;
+  }
+
+  .contact-hero-lead {
+    font-size: 1rem;
+  }
+
+  .contact-quote-text {
+    font-size: 1.35rem;
   }
 
   .contact-form-container {
     padding: 2.5rem 1.5rem;
-  }
-
-  .form-grid-2 {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-quote-text {
-    font-size: 1.7rem;
   }
 }

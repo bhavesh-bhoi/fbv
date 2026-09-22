@@ -6,15 +6,15 @@ const CTA = () => {
     <section className="cta-section striped-bg">
       <div className="cta-container" data-aos="zoom-in" data-aos-duration="900">
         <div className="cta-image-wrapper">
-          <img src="/assets/maeva_white_tee.jpg" alt="Maëva Boukhetache" />
+          <img src="/assets/contact_vidhi_portrait.png" alt="Vidhi" />
         </div>
         <div className="cta-text">
           <h2>
-            ready to build<br/>
-            something that <span className="serif serif-underline" style={{color: '#0055cb', textDecorationColor: '#0055cb'}}>feels</span><br/>
+            ready to build<br />
+            something that <span className="serif serif-underline" style={{ color: '#0055cb', textDecorationColor: '#0055cb' }}>feels</span><br />
             like you?
           </h2>
-          <p>let's turn your ideas into a brand you're<br/>excited to show up with</p>
+          <p>let's turn your ideas into a brand you're<br />excited to show up with</p>
           <a
             href="#contact"
             className="btn-pill"

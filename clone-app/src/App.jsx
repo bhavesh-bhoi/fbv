@@ -65,9 +65,13 @@ function App() {
   const renderPage = () => {
     switch (currentPath) {
       case '#work': return <Work />;
-      case '#about': return <AboutPage />;
+      case '#about':
+      case '#about-me':
+        return <AboutPage />;
       case '#services': return <ServicesPage />;
-      case '#contact': return <ContactPage />;
+      case '#work-with-me':
+      case '#contact':
+        return <ContactPage />;
       case '#home':
       default:
         return <Home />;

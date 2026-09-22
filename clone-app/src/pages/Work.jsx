@@ -88,17 +88,47 @@ const Work = () => {
   }, []);
 
   return (
-    <div className="page-work" style={{ paddingTop: '86px' }}>
+    <div className="page-work">
       
-      {/* 1. Portfolio Header matching live https://maedesign.es/portfolio */}
+      {/* 1. Striped Lining Portfolio Header matching Screenshot 3 & maedesign.es */}
       <section className="work-header-section" data-aos="fade-down">
         <div className="work-header-container">
-          <div className="work-header-deco-left" aria-hidden="true">
-            <svg width="48" height="48" viewBox="0 0 50 50" fill="none">
-              <path d="M25 0 Q25 25 50 25 Q25 25 25 50 Q25 25 0 25 Q25 25 25 0 Z" fill="#0055cb" />
+          
+          {/* Left: Yellow circular "soft but powerful" sticker badge */}
+          <div className="work-sticker-round-yellow" aria-hidden="true">
+            <svg viewBox="0 0 100 100" className="round-badge-svg">
+              <path
+                id="curve-top"
+                d="M 20 50 A 30 30 0 0 1 80 50"
+                fill="none"
+              />
+              <path
+                id="curve-bottom"
+                d="M 80 52 A 30 30 0 0 1 20 52"
+                fill="none"
+              />
+              <text className="round-badge-text" fill="#0055cb">
+                <textPath href="#curve-top" startOffset="50%" textAnchor="middle">
+                  soft but
+                </textPath>
+              </text>
+              <text className="round-badge-text" fill="#0055cb">
+                <textPath href="#curve-bottom" startOffset="50%" textAnchor="middle">
+                  powerful
+                </textPath>
+              </text>
             </svg>
+            <div className="round-badge-stars">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#0055cb">
+                <path d="M12 0 Q12 12 24 12 Q12 12 12 24 Q12 12 0 12 Q12 12 12 0 Z" />
+              </svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#0055cb">
+                <path d="M12 0 Q12 12 24 12 Q12 12 12 24 Q12 12 0 12 Q12 12 12 0 Z" />
+              </svg>
+            </div>
           </div>
 
+          {/* Center Titles */}
           <h1 className="work-main-title">
             selected branding &amp; packaging projects ✨
           </h1>
@@ -106,15 +136,19 @@ const Work = () => {
             thoughtful brands created with intention, personality and a clear vision — designed to feel right and stand out naturally
           </p>
 
-          <div className="work-header-deco-right" aria-hidden="true">
-            <div className="work-sticker-pill">
-              <span>VIDHI STUDIO</span>
+          {/* Right: Oval tilted blue sticker badge */}
+          <div className="work-sticker-oval-blue" aria-hidden="true">
+            <div className="oval-badge-inner">
+              <span className="oval-badge-top">built from your essence</span>
+              <span className="oval-badge-logo">maë</span>
+              <span className="oval-badge-sub">creative design studio</span>
             </div>
           </div>
+
         </div>
       </section>
 
-      {/* 2. Full Project Grid matching maedesign.es/portfolio */}
+      {/* 2. Full Project Grid with balanced spacing */}
       <section className="work-grid-section" data-aos="fade-up">
         <div className="work-projects-grid">
           {CASE_STUDIES.map((project) => (

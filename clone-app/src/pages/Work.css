@@ -1,12 +1,19 @@
-/* Work Page Styling aligned with https://maedesign.es/portfolio */
+/* Work Page Styling aligned with Screenshot 3 & https://maedesign.es/portfolio */
 .page-work {
   width: 100%;
   background-color: #faf9f6;
+  position: relative;
 }
 
-/* 1. Header Banner matching maedesign.es/portfolio */
+/* 1. Striped Lining Header Section */
 .work-header-section {
-  background-color: #c9d8f7;
+  background: repeating-linear-gradient(
+    90deg,
+    #ffffff,
+    #ffffff 25px,
+    rgb(201 216 247) 25px,
+    rgb(201 216 247) 50px
+  );
   padding: 5rem 2rem 4.5rem 2rem;
   border-bottom: 2px solid var(--blue, #0055cb);
   position: relative;
@@ -18,59 +25,133 @@
   max-width: 960px;
   margin: 0 auto;
   position: relative;
+  z-index: 2;
 }
 
 .work-main-title {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 2.75rem;
+  font-weight: 800;
   color: var(--blue, #0055cb);
   margin: 0 0 1.25rem 0;
   line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 .work-main-subtitle {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.05rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
   color: var(--blue, #0055cb);
   max-width: 680px;
   margin: 0 auto;
 }
 
-.work-header-deco-left {
+/* Left Sticker: Round Yellow "soft but powerful" */
+.work-sticker-round-yellow {
   position: absolute;
-  top: 10%;
-  left: -20px;
-  opacity: 0.85;
-}
-
-.work-header-deco-right {
-  position: absolute;
-  top: 10%;
-  right: -20px;
-}
-
-.work-sticker-pill {
+  left: -80px;
+  bottom: -15px;
+  width: 105px;
+  height: 105px;
   background-color: #fffcbd;
-  color: var(--blue, #0055cb);
-  border: 1.5px solid var(--blue, #0055cb);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  padding: 6px 14px;
-  border-radius: 20px;
-  transform: rotate(8deg);
-  box-shadow: 0 4px 10px rgba(0, 85, 203, 0.12);
+  border: 2px solid var(--blue, #0055cb);
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(0, 85, 203, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-10deg);
+  user-select: none;
+  pointer-events: none;
 }
 
-/* 2. Project Grid */
+.round-badge-svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.round-badge-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.round-badge-stars {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  z-index: 1;
+}
+
+/* Right Sticker: Oval Tilted Blue "built from your essence" */
+.work-sticker-oval-blue {
+  position: absolute;
+  right: -80px;
+  top: -10px;
+  background-color: var(--blue, #0055cb);
+  color: #fffcbd;
+  border: 2px solid #0055cb;
+  border-radius: 50px;
+  padding: 18px 24px;
+  box-shadow: 0 8px 24px rgba(0, 85, 203, 0.2);
+  transform: rotate(-12deg);
+  user-select: none;
+  pointer-events: none;
+  width: 155px;
+  text-align: center;
+}
+
+.oval-badge-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.oval-badge-top {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  color: #fffcbd;
+  line-height: 1.1;
+}
+
+.oval-badge-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.55rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: #fffcbd;
+  line-height: 1;
+  margin: 1px 0;
+}
+
+.oval-badge-sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  color: #fffcbd;
+  line-height: 1.1;
+}
+
+/* 2. Project Grid (Fixed Spacing - No Large White Gap) */
 .work-grid-section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 5.5rem 2rem 7rem 2rem;
+  padding: 2.8rem 2rem 5.5rem 2rem;
 }
 
 .work-projects-grid {
@@ -189,9 +270,15 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 3rem 2rem;
   }
+  .work-sticker-round-yellow {
+    left: -20px;
+  }
+  .work-sticker-oval-blue {
+    right: -20px;
+  }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   .work-projects-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -202,11 +289,11 @@
   }
 
   .work-main-title {
-    font-size: 1.85rem;
+    font-size: 2rem;
   }
 
-  .work-header-deco-left,
-  .work-header-deco-right {
+  .work-sticker-round-yellow,
+  .work-sticker-oval-blue {
     display: none;
   }
 }

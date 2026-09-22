@@ -1,323 +1,393 @@
-/* AboutPage.css - Aligned with https://maedesign.es/about-me */
-.page-about {
+/* About Page Clone of https://maedesign.es/about-me */
+
+.page-about-clone {
   width: 100%;
-  background-color: #faf9f6;
-  color: #1a1a1a;
-  overflow: hidden;
-}
-
-/* 1. Hero Section */
-.about-page-hero {
-  padding: 6rem 2rem 5.5rem 2rem;
-  border-bottom: 1.5px solid rgba(0, 85, 203, 0.18);
-  background-color: #faf9f6;
-}
-
-.about-page-hero-container {
-  max-width: 1240px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 5rem;
-}
-
-/* Left photo composition */
-.about-page-hero-left {
-  flex: 0 0 460px;
-}
-
-.about-page-photo-stack {
   position: relative;
-  width: 100%;
-  max-width: 440px;
-  height: 520px;
+  background-color: #faf9f6;
 }
 
-.about-page-main-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 16px 36px rgba(0, 50, 130, 0.12);
-  display: block;
-}
-
-/* Floating stickers */
-.about-page-tag-top {
-  position: absolute;
-  top: -16px;
-  left: -20px;
+/* =========================================================
+   1. HERO COLLAGE SECTION (hero-6)
+========================================================= */
+.about-hero-collage {
   background-color: #c9d8f7;
-  color: var(--blue, #0055cb);
-  border: 1.5px solid var(--blue, #0055cb);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  padding: 8px 16px;
-  border-radius: 24px;
-  box-shadow: 0 4px 12px rgba(0, 85, 203, 0.12);
-  transform: rotate(-3deg);
-}
-
-.about-page-tag-bottom {
-  position: absolute;
-  bottom: 24px;
-  right: -24px;
-  background-color: #fffcbd;
-  color: var(--blue, #0055cb);
-  border: 1.5px solid var(--blue, #0055cb);
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-style: italic;
-  font-size: 1.05rem;
-  padding: 8px 18px;
-  border-radius: 24px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-  transform: rotate(2deg);
-}
-
-.about-page-seal {
-  position: absolute;
-  top: 40px;
-  right: -20px;
-  background-color: var(--blue, #0055cb);
-  color: #ffffff;
-  border-radius: 50%;
-  width: 72px;
-  height: 72px;
+  border-bottom: 2px solid var(--blue, #0055cb);
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 2rem 6rem 2rem;
+  min-height: 840px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 800;
-  text-align: center;
-  line-height: 1.15;
-  box-shadow: 0 4px 12px rgba(0, 85, 203, 0.25);
 }
 
-/* Right story column */
-.about-page-hero-right {
-  flex: 1;
-}
-
-.about-page-eyebrow {
-  display: inline-block;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  color: var(--blue, #0055cb);
-  background-color: #c9d8f7;
-  padding: 6px 16px;
-  border-radius: 20px;
-  margin-bottom: 1.5rem;
-}
-
-.about-page-hero-title {
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 2.35rem;
-  font-weight: 700;
-  line-height: 1.25;
-  color: var(--blue, #0055cb);
-  margin: 0 0 1.75rem 0;
-  letter-spacing: -0.02em;
-}
-
-.about-page-hero-p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.02rem;
-  font-weight: 500;
-  line-height: 1.7;
-  color: #333333;
-  margin-bottom: 1.25rem;
-}
-
-.about-page-cta-row {
-  margin-top: 2rem;
-}
-
-/* 2. Philosophy & Principles Section */
-.about-philosophy-section {
-  padding: 6.5rem 2rem 7rem 2rem;
-  background-color: #ffffff;
-  border-bottom: 1.5px solid rgba(0, 85, 203, 0.18);
-}
-
-.about-philosophy-container {
-  max-width: 1240px;
+.about-hero-collage-container {
+  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
+  position: relative;
+  min-height: 720px;
   display: flex;
   align-items: center;
-  gap: 5rem;
+  justify-content: center;
 }
 
-.about-philosophy-media {
-  flex: 0 0 440px;
-}
-
-.philosophy-photo-card {
+/* Center Text Box */
+.about-hero-center-content {
+  max-width: 660px;
+  margin: 0 auto;
+  text-align: center;
   position: relative;
-  width: 100%;
-  height: 500px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 14px 32px rgba(0, 50, 130, 0.1);
+  z-index: 10;
+  padding: 2rem 1rem;
 }
 
-.philosophy-photo-img {
+.about-hero-title {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 2.35rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--blue, #0055cb);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+}
+
+.about-hero-subtitle {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 1.65rem;
+  line-height: 1.35;
+  color: var(--blue, #0055cb);
+  margin: 0 auto;
+  max-width: 560px;
+}
+
+/* Collage Photo Cards */
+.collage-card {
+  position: absolute;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0, 50, 140, 0.12);
+  transition: transform 0.4s ease;
+  z-index: 3;
+}
+
+.collage-card:hover {
+  transform: scale(1.03) translateY(-4px);
+}
+
+.collage-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.philosophy-deco-pill {
-  position: absolute;
-  bottom: 20px;
+/* Specific Positions for Photos */
+.collage-photo-1 {
+  top: 10px;
   left: 20px;
-  background-color: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(8px);
-  color: var(--blue, #0055cb);
-  border: 1px solid rgba(0, 85, 203, 0.25);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  padding: 6px 14px;
-  border-radius: 16px;
+  width: 210px;
+  height: 250px;
+  transform: rotate(-3deg);
 }
 
-.about-philosophy-content {
-  flex: 1;
+.collage-photo-2 {
+  top: 10px;
+  right: 20px;
+  width: 210px;
+  height: 250px;
+  transform: rotate(3deg);
 }
 
-.philosophy-header {
-  margin-bottom: 2.5rem;
+.collage-photo-3 {
+  bottom: 15px;
+  left: 30px;
+  width: 210px;
+  height: 250px;
+  transform: rotate(2deg);
 }
 
-.philosophy-eyebrow {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.2em;
-  color: var(--blue, #0055cb);
-  display: block;
-  margin-bottom: 0.75rem;
+.collage-photo-4 {
+  bottom: 15px;
+  right: 30px;
+  width: 210px;
+  height: 250px;
+  transform: rotate(-2deg);
 }
 
-.philosophy-title {
+/* Collage Tags */
+.collage-tag {
+  position: absolute;
+  z-index: 5;
+}
+
+.serif-tag {
   font-family: 'Instrument Serif', Georgia, serif;
   font-style: italic;
-  font-size: 2.5rem;
-  font-weight: 400;
+  font-size: 1.45rem;
   color: var(--blue, #0055cb);
   margin: 0;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
-.pillars-cards-list {
+.collage-tag-top-right {
+  top: 60px;
+  right: 250px;
+  text-align: center;
+  max-width: 250px;
+}
+
+.wavy-tag-doodle {
+  margin-top: 4px;
+}
+
+.collage-tag-bottom-left {
+  bottom: 270px;
+  left: 30px;
+  max-width: 220px;
+}
+
+/* Star and Oval Stickers */
+.collage-sticker-star-1 {
+  position: absolute;
+  top: 270px;
+  left: 250px;
+  z-index: 4;
+}
+
+.collage-sticker-star-2 {
+  position: absolute;
+  bottom: 180px;
+  right: 270px;
+  z-index: 4;
+}
+
+.collage-sticker-oval {
+  position: absolute;
+  bottom: 270px;
+  right: 80px;
+  background-color: var(--blue, #0055cb);
+  color: #fffcbd;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transform: rotate(8deg);
+  box-shadow: 0 4px 12px rgba(0, 50, 140, 0.15);
+  z-index: 6;
+}
+
+/* =========================================================
+   2. "WHY WORK WITH ME?" YELLOW SECTION (new-canvas)
+========================================================= */
+.about-why-work-section {
+  background-color: #fffcbd;
+  border-bottom: 2px solid var(--blue, #0055cb);
+  padding: 5.5rem 2rem 6rem 2rem;
+  position: relative;
+}
+
+.about-why-work-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+/* Left Column: Photo Frame */
+.why-work-left {
+  flex: 0 0 440px;
+}
+
+.why-work-photo-frame {
+  width: 100%;
+  height: 520px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 12px 36px rgba(0, 50, 140, 0.1);
+  border: 1px solid rgba(0, 85, 203, 0.15);
+}
+
+.why-work-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.why-work-floating-sticker {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background-color: #ffffff;
+  border: 1.5px solid var(--blue, #0055cb);
+  padding: 8px 16px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 6px 16px rgba(0, 50, 140, 0.15);
+  transform: rotate(-6deg);
+}
+
+.sticker-bold {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--blue, #0055cb);
+}
+
+.sticker-italic {
+  font-size: 1rem;
+  color: var(--blue, #0055cb);
+}
+
+/* Right Column: Content */
+.why-work-right {
+  flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+.why-work-title {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--blue, #0055cb);
+  margin-bottom: 2.2rem;
+  letter-spacing: -0.03em;
+}
+
+.why-work-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  margin-bottom: 2.8rem;
+}
+
+.why-work-item {
+  display: flex;
+  align-items: center;
   gap: 1.25rem;
 }
 
-.pillar-detail-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-  padding: 1rem 1.25rem;
-  border-radius: 8px;
-  background-color: #faf9f6;
-  border: 1px solid rgba(0, 85, 203, 0.12);
-  transition: all 0.3s ease;
-}
-
-.pillar-detail-row:hover {
-  background-color: #f2f6fe;
-  border-color: var(--blue, #0055cb);
-  transform: translateX(4px);
-}
-
-.pillar-index {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  font-weight: 800;
-  color: var(--blue, #0055cb);
-  background-color: #c9d8f7;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+.why-work-arrow-icon {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-.pillar-info {
-  flex: 1;
-}
-
-.pillar-title-text {
+.why-work-item-text {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 1.22rem;
+  font-weight: 500;
   color: var(--blue, #0055cb);
-  margin: 0 0 0.3rem 0;
+  line-height: 1.35;
 }
 
-.pillar-desc-text {
+/* Button */
+.why-work-cta-wrap {
+  display: flex;
+}
+
+.btn-lets-work {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--blue, #0055cb);
+  color: #fffcbd;
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #444444;
-  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 0.95rem 2.4rem;
+  border-radius: 40px;
+  text-decoration: none;
+  border: 2px solid var(--blue, #0055cb);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(0, 85, 203, 0.25);
+  cursor: pointer;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .about-page-hero-container,
-  .about-philosophy-container {
-    flex-direction: column;
-    gap: 3.5rem;
+.btn-lets-work:hover {
+  background-color: transparent;
+  color: var(--blue, #0055cb);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 85, 203, 0.35);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 1100px) {
+  .about-hero-collage {
+    min-height: auto;
+    padding: 4rem 1.5rem;
   }
 
-  .about-page-hero-left,
-  .about-philosophy-media {
+  .about-hero-collage-container {
+    min-height: auto;
+    flex-direction: column;
+  }
+
+  .about-hero-center-content {
+    order: 1;
+    margin-bottom: 2rem;
+  }
+
+  .collage-card {
+    position: static;
+    transform: none !important;
+    width: 240px;
+    height: 280px;
+  }
+
+  .collage-tag,
+  .collage-sticker-star-1,
+  .collage-sticker-star-2,
+  .collage-sticker-oval {
+    display: none;
+  }
+
+  .about-why-work-container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .why-work-left {
     flex: 0 0 auto;
     width: 100%;
     max-width: 440px;
-    margin: 0 auto;
-  }
-
-  .about-page-hero-title {
-    font-size: 2rem;
   }
 }
 
-@media (max-width: 600px) {
-  .about-page-photo-stack {
+@media (max-width: 768px) {
+  .about-hero-title {
+    font-size: 1.85rem;
+  }
+
+  .about-hero-subtitle {
+    font-size: 1.35rem;
+  }
+
+  .why-work-title {
+    font-size: 2.1rem;
+  }
+
+  .why-work-item-text {
+    font-size: 1.05rem;
+  }
+
+  .why-work-photo-frame {
     height: 380px;
-  }
-
-  .about-page-tag-top,
-  .about-page-tag-bottom {
-    font-size: 0.65rem;
-    padding: 6px 12px;
-  }
-
-  .about-page-seal {
-    width: 58px;
-    height: 58px;
-    font-size: 0.6rem;
-  }
-
-  .philosophy-photo-card {
-    height: 340px;
-  }
-
-  .about-page-hero-title {
-    font-size: 1.65rem;
   }
 }

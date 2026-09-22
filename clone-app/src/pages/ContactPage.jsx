@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Contact from '../components/Contact';
-import DiscoverWorks from '../components/DiscoverWorks';
 
 const ContactPage = () => {
   useEffect(() => {
@@ -8,9 +7,8 @@ const ContactPage = () => {
   }, []);
 
   return (
-    <div className="page-contact" style={{ paddingTop: '86px' }}>
+    <div className="page-contact">
       <Contact />
-      <DiscoverWorks />
     </div>
   );
 };

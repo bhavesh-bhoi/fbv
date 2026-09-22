@@ -21,13 +21,13 @@ const Hero = () => {
       <div className="split-half hero-right" data-aos="fade-left" data-aos-duration="900" data-aos-delay="200">
         {/* We use the placeholder designer portrait generated earlier */}
         <div className="hero-image-wrapper">
-           <img src="/assets/portfolio_her_image.png" alt="Designer Portrait" className="hero-img" />
-           {/* SVG for lightning bolt would go here. We'll simulate it with an img or absolute div later if needed, but for now just the photo */}
-           <div className="lightning-bolt">
-             <svg width="40" height="80" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L2 26H12L10 46L22 20H12L12 2Z" stroke="#1b4aba" strokeWidth="2" strokeLinejoin="round"/>
-             </svg>
-           </div>
+          <img src="/assets/portfolio_her_image.png" alt="Vidhi Portrait" className="hero-img" />
+          {/* Lightning bolt badge */}
+          <div className="lightning-bolt">
+            <svg width="40" height="80" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 26H12L10 46L22 20H12L12 2Z" stroke="#1b4aba" strokeWidth="2" strokeLinejoin="round" />
+            </svg>
+          </div>
         </div>
       </div>
     </section>
