@@ -1,411 +1,330 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './InteractiveImageShowcase.css';
 
-// Rich card data for each project matching the reference screenshots
+// Rich card data for each project using uploaded sticker images
 export const PROJECTS_DATA = [
   {
-    id: 'mosi-skin',
+    id: 'tropez',
     title: 'Tropez',
     displayTitle: 'Tropez',
     isSerif: false,
     cards: [
       {
-        id: 'mosi-1',
-        type: 'top-left-horizontal',
-        render: () => (
-          <div className="card-mosi-logo-light">
-            <div className="card-inner-flex-center">
-              <span className="mosi-logo-main">
-                MOSI <span className="sparkle-star">✦</span> SKIN
-              </span>
-            </div>
-          </div>
-        ),
+        id: 'tropez-1',
+        number: 1,
+        title: 'Top-Left Box',
+        type: 'top-left-box',
+        image: '/assets/Tropez 1.png',
+        alt: 'Tropez - Top-Left Box',
       },
       {
-        id: 'mosi-2',
-        type: 'top-right-square',
-        render: () => (
-          <div className="card-mosi-dark-square">
-            <div className="card-inner-flex-center">
-              <span className="mosi-dark-line serif">MOSI</span>
-              <span className="sparkle-star-white">✦</span>
-              <span className="mosi-dark-line serif">SKIN</span>
-            </div>
-          </div>
-        ),
+        id: 'tropez-2',
+        number: 2,
+        title: 'Top-Right Box',
+        type: 'top-right-box',
+        image: '/assets/Tropez 2.png',
+        alt: 'Tropez - Top-Right Box',
       },
       {
-        id: 'mosi-3',
-        type: 'mid-left-portrait',
-        render: () => (
-          <div className="card-flyer-handheld">
-            <div className="flyer-sheet">
-              <div className="flyer-top">
-                <span className="flyer-title serif">Treatment Rituals</span>
-                <span className="sparkle-star-sm">✦</span>
-              </div>
-              <div className="flyer-steps">
-                <div className="f-step"><div className="f-thumb f1" /><span>01. Cleanse</span></div>
-                <div className="f-step"><div className="f-thumb f2" /><span>02. Tone</span></div>
-                <div className="f-step"><div className="f-thumb f3" /><span>03. Serum</span></div>
-                <div className="f-step"><div className="f-thumb f4" /><span>04. Glow</span></div>
-              </div>
-            </div>
-          </div>
-        ),
+        id: 'tropez-3',
+        number: 3,
+        title: 'Mid-Left Box',
+        type: 'mid-left-box',
+        image: '/assets/Tropez 3.png',
+        alt: 'Tropez - Mid-Left Box',
       },
       {
-        id: 'mosi-4',
-        type: 'bottom-center-left-overlap',
-        render: () => (
-          <div className="card-bag-portrait">
-            <div className="bag-model-backdrop">
-              <div className="bag-3d-mockup">
-                <div className="bag-handle-loop" />
-                <div className="bag-body-box">
-                  <span className="bag-foil-text">MOSI SKIN</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        ),
+        id: 'tropez-4',
+        number: 4,
+        title: 'Bottom-Left Overlap Box',
+        type: 'bottom-left-overlap-box',
+        image: '/assets/Tropez 4.png',
+        alt: 'Tropez - Bottom-Left Overlap Box',
       },
       {
-        id: 'mosi-5',
-        type: 'bottom-right-grid',
-        render: () => (
-          <div className="card-moodboard-slate">
-            <div className="slate-tiles">
-              <div className="tile t1" />
-              <div className="tile t2"><span className="serif">“Sacred Skin”</span></div>
-              <div className="tile t3" />
-              <div className="tile t4" />
-              <div className="tile t5"><span>NEW SERVICE</span></div>
-              <div className="tile t6" />
-            </div>
-          </div>
-        ),
+        id: 'tropez-5',
+        number: 5,
+        title: 'Bottom-Right Box',
+        type: 'bottom-right-box',
+        image: '/assets/Tropez 5.png',
+        alt: 'Tropez - Bottom-Right Box',
       },
     ],
   },
   {
-    id: 'pretty-baby-things',
+    id: 'brew-studio',
     title: 'Brew Studio',
     displayTitle: 'Brew Studio',
     isSerif: true,
     cards: [
       {
-        id: 'pbt-1',
-        type: 'top-left-horizontal',
-        render: () => (
-          <div className="card-pbt-logo-light">
-            <div className="card-inner-flex-center">
-              <span className="pbt-logo-main serif">
-                PRETTY BABY THINGS <span className="sparkle-star">✦</span>
-              </span>
-              <span className="pbt-sub">BOUTIQUE ATELIER</span>
-            </div>
-          </div>
-        ),
+        id: 'brew-studio-1',
+        number: 1,
+        title: 'Top-Left Box',
+        type: 'top-left-box',
+        image: '/assets/Brew Studio 1.png',
+        alt: 'Brew Studio - Top-Left Box',
       },
       {
-        id: 'pbt-2',
-        type: 'top-right-square',
-        render: () => (
-          <div className="card-pbt-dark-square">
-            <div className="card-inner-flex-center">
-              <span className="pbt-monogram serif">PBT</span>
-              <span className="sparkle-star-gold">✦</span>
-              <span className="pbt-est">EST. 2024</span>
-            </div>
-          </div>
-        ),
+        id: 'brew-studio-2',
+        number: 2,
+        title: 'Top-Right Box',
+        type: 'top-right-box',
+        image: '/assets/Brew Studio 2.png',
+        alt: 'Brew Studio - Top-Right Box',
       },
       {
-        id: 'pbt-3',
-        type: 'mid-left-portrait',
-        render: () => (
-          <div className="card-pbt-silk">
-            <div className="silk-sheet">
-              <div className="silk-ribbon" />
-              <div className="silk-tag">
-                <span className="serif">Silk & Linen</span>
-                <span className="tag-price">SPRING / SUMMER</span>
-              </div>
-            </div>
-          </div>
-        ),
+        id: 'brew-studio-3',
+        number: 3,
+        title: 'Mid-Left Box',
+        type: 'mid-left-box',
+        image: '/assets/Brew Studio 3.png',
+        alt: 'Brew Studio - Mid-Left Box',
       },
       {
-        id: 'pbt-4',
-        type: 'bottom-center-left-overlap',
-        render: () => (
-          <div className="card-pbt-tote">
-            <div className="tote-body">
-              <span className="tote-text serif">PBT</span>
-            </div>
-          </div>
-        ),
+        id: 'brew-studio-4',
+        number: 4,
+        title: 'Bottom-Left Overlap Box',
+        type: 'bottom-left-overlap-box',
+        image: '/assets/Brew Studio 4.png',
+        alt: 'Brew Studio - Bottom-Left Overlap Box',
       },
       {
-        id: 'pbt-5',
-        type: 'bottom-right-grid',
-        render: () => (
-          <div className="card-pbt-moodboard">
-            <div className="slate-tiles">
-              <div className="tile p1" />
-              <div className="tile p2"><span className="serif">“Pure Softness”</span></div>
-              <div className="tile p3" />
-              <div className="tile p4" />
-              <div className="tile p5"><span>EDITION 02</span></div>
-              <div className="tile p6" />
-            </div>
-          </div>
-        ),
+        id: 'brew-studio-5',
+        number: 5,
+        title: 'Bottom-Right Box',
+        type: 'bottom-right-box',
+        image: '/assets/Brew Studio 5.png',
+        alt: 'Brew Studio - Bottom-Right Box',
       },
     ],
   },
   {
-    id: 'inner-matter',
+    id: 'brownie-bloom',
     title: 'Brownie Bloom',
     displayTitle: 'Brownie Bloom',
     isSerif: true,
     cards: [
       {
-        id: 'im-1',
-        type: 'top-left-horizontal',
-        render: () => (
-          <div className="card-im-dark-square">
-            <div className="im-dark-content">
-              <span className="im-meta">EST. 2022</span>
-              <div className="im-arch-icon">][</div>
-              <h3 className="im-title-serif serif">INNER MATTER</h3>
-              <span className="im-sub">FROM WITHIN</span>
-            </div>
-          </div>
-        ),
+        id: 'brownie-bloom-1',
+        number: 1,
+        title: 'Top-Left Box',
+        type: 'top-left-box',
+        image: '/assets/Brownie Bloom 1.png',
+        alt: 'Brownie Bloom - Top-Left Box',
       },
       {
-        id: 'im-2',
-        type: 'top-right-square',
-        render: () => (
-          <div className="card-im-painted-circle">
-            <div className="painted-brush-circle" />
-            <div className="circle-screens">
-              <div className="screen-card s1">
-                <span className="s-tag">SIGNATURE RITUALS</span>
-                <div className="s-thumb" />
-              </div>
-              <div className="screen-card s2">
-                <div className="s-face-thumb" />
-                <span className="s-tag serif">Deep Essence</span>
-              </div>
-            </div>
-          </div>
-        ),
+        id: 'brownie-bloom-2',
+        number: 2,
+        title: 'Top-Right Box',
+        type: 'top-right-box',
+        image: '/assets/Brownie Bloom 2.png',
+        alt: 'Brownie Bloom - Top-Right Box',
       },
       {
-        id: 'im-3',
-        type: 'mid-left-portrait',
-        render: () => (
-          <div className="card-im-foam-bottle">
-            <div className="foam-bottle-bg">
-              <div className="pump-dispenser" />
-              <div className="foam-cloud" />
-              <div className="bottle-label">
-                <span className="label-brand serif">TROPICAL STILLNESS</span>
-                <span className="label-sub">PURIFYING BODY WASH</span>
-              </div>
-            </div>
-          </div>
-        ),
+        id: 'brownie-bloom-3',
+        number: 3,
+        title: 'Mid-Left Box',
+        type: 'mid-left-box',
+        image: '/assets/Brownie Bloom 3.png',
+        alt: 'Brownie Bloom - Mid-Left Box',
       },
       {
-        id: 'im-4',
-        type: 'bottom-center-left-overlap',
-        render: () => (
-          <div className="card-im-sand-arch">
-            <div className="im-sand-inner">
-              <div className="im-gold-arch-symbol">][</div>
-              <span className="im-sand-caption">SANCTUARY</span>
-            </div>
-          </div>
-        ),
+        id: 'brownie-bloom-4',
+        number: 4,
+        title: 'Bottom-Left Overlap Box',
+        type: 'bottom-left-overlap-box',
+        image: '/assets/Brownie Bloom 4.png',
+        alt: 'Brownie Bloom - Bottom-Left Overlap Box',
       },
       {
-        id: 'im-5',
-        type: 'mid-right-portrait',
-        render: () => (
-          <div className="card-im-foliage-board">
-            <div className="foliage-backdrop">
-              <div className="sign-board">
-                <span className="sign-icon">][</span>
-                <span className="sign-title serif">INNER MATTER</span>
-                <span className="sign-desc">AN IMMERSIVE SPA EXPERIENCE ROOTED IN RITUAL, BALANCE, AND STILLNESS.</span>
-              </div>
-            </div>
-          </div>
-        ),
+        id: 'brownie-bloom-5',
+        number: 5,
+        title: 'Bottom-Right Box',
+        type: 'bottom-right-box',
+        image: '/assets/Brownie Bloom 5.png',
+        alt: 'Brownie Bloom - Bottom-Right Box',
       },
       {
-        id: 'im-6',
-        type: 'bottom-right-grid',
-        render: () => (
-          <div className="card-im-olive-horizontal">
-            <div className="olive-card-content">
-              <span className="olive-est">EST. 2022</span>
-              <h4 className="olive-title serif">INNER MATTER</h4>
-              <span className="olive-sub">PREMIUM SPA</span>
-            </div>
-          </div>
-        ),
+        id: 'brownie-bloom-6',
+        number: 6,
+        title: 'Mid-Right Box (alternate)',
+        type: 'mid-right-box',
+        image: '/assets/Brownie Bloom 6.png',
+        alt: 'Brownie Bloom - Mid-Right Box (alternate)',
       },
     ],
   },
   {
-    id: 'shared-ground',
+    id: 'wild-bloom',
     title: 'Wild Bloom',
     displayTitle: 'Wild Bloom',
     isSerif: true,
     cards: [
       {
-        id: 'sg-1',
-        type: 'top-left-horizontal',
-        render: () => (
-          <div className="card-sg-terracotta">
-            <div className="card-inner-flex-center">
-              <span className="sg-title-clean">SHARED GROUND</span>
-              <span className="sg-sub">CERAMICS & ARCHITECTURE</span>
-            </div>
-          </div>
-        ),
+        id: 'wild-bloom-1',
+        number: 1,
+        title: 'Top-Left Box',
+        type: 'top-left-box',
+        image: '/assets/Wild Bloom 1.png',
+        alt: 'Wild Bloom - Top-Left Box',
       },
       {
-        id: 'sg-2',
-        type: 'top-right-square',
-        render: () => (
-          <div className="card-sg-stone">
-            <div className="card-inner-flex-center">
-              <div className="sg-emblem">✦</div>
-              <span className="sg-stone-title serif">SHARED GROUND</span>
-              <span className="sg-meta">STUDIO 04</span>
-            </div>
-          </div>
-        ),
+        id: 'wild-bloom-2',
+        number: 2,
+        title: 'Top-Right Box',
+        type: 'top-right-box',
+        image: '/assets/Wild Bloom 2.png',
+        alt: 'Wild Bloom - Top-Right Box',
       },
       {
-        id: 'sg-3',
-        type: 'mid-left-portrait',
-        render: () => (
-          <div className="card-sg-vessel">
-            <div className="vessel-sunlight">
-              <div className="ceramic-silhouette" />
-              <span className="vessel-caption serif">Raw Clay No. 12</span>
-            </div>
-          </div>
-        ),
+        id: 'wild-bloom-3',
+        number: 3,
+        title: 'Mid-Left Box',
+        type: 'mid-left-box',
+        image: '/assets/Wild Bloom 3.png',
+        alt: 'Wild Bloom - Mid-Left Box',
       },
       {
-        id: 'sg-4',
-        type: 'bottom-center-left-overlap',
-        render: () => (
-          <div className="card-sg-kraft">
-            <div className="kraft-box">
-              <div className="linen-cord" />
-              <span className="kraft-stamp">HANDMADE</span>
-            </div>
-          </div>
-        ),
+        id: 'wild-bloom-4',
+        number: 4,
+        title: 'Bottom-Left Overlap Box',
+        type: 'bottom-left-overlap-box',
+        image: '/assets/Wild Bloom 4.png',
+        alt: 'Wild Bloom - Bottom-Left Overlap Box',
       },
       {
-        id: 'sg-5',
-        type: 'bottom-right-grid',
-        render: () => (
-          <div className="card-sg-materials">
-            <div className="slate-tiles">
-              <div className="tile s-clay" />
-              <div className="tile s-quote"><span className="serif">“Earth in Form”</span></div>
-              <div className="tile s-sand" />
-              <div className="tile s-rock" />
-              <div className="tile s-kiln"><span>GALLERY</span></div>
-              <div className="tile s-linen" />
-            </div>
-          </div>
-        ),
+        id: 'wild-bloom-5',
+        number: 5,
+        title: 'Bottom-Right Box',
+        type: 'bottom-right-box',
+        image: '/assets/Wild Bloom 5.png',
+        alt: 'Wild Bloom - Bottom-Right Box',
       },
     ],
   },
   {
-    id: 'bare-earth',
+    id: 'life-os',
     title: 'Life OS',
     displayTitle: 'Life OS',
     isSerif: true,
     cards: [
       {
-        id: 'be-1',
-        type: 'top-left-horizontal',
-        render: () => (
-          <div className="card-be-oatmeal">
-            <div className="card-inner-flex-center">
-              <span className="be-logo-text serif">Bare Earth</span>
-              <span className="be-sub">RAW BOTANICAL SCIENCE</span>
-            </div>
-          </div>
-        ),
+        id: 'life-os-1',
+        number: 1,
+        title: 'Top-Left Box',
+        type: 'top-left-box',
+        image: '/assets/Life OS 1.png',
+        alt: 'Life OS - Top-Left Box',
       },
       {
-        id: 'be-2',
-        type: 'top-right-square',
-        render: () => (
-          <div className="card-be-sage">
-            <div className="card-inner-flex-center">
-              <span className="be-sage-title serif">BARE EARTH</span>
-              <span className="be-botanical-icon">🌿</span>
-              <span className="be-sage-sub">100% ORGANIC</span>
-            </div>
-          </div>
-        ),
+        id: 'life-os-2',
+        number: 2,
+        title: 'Top-Right Box',
+        type: 'top-right-box',
+        image: '/assets/Life OS 2.png',
+        alt: 'Life OS - Top-Right Box',
       },
       {
-        id: 'be-3',
-        type: 'mid-left-portrait',
-        render: () => (
-          <div className="card-be-bottle">
-            <img src="/portfolio_1.png" alt="Bare Earth Serum" className="be-photo" />
-            <div className="photo-badge serif">Botanical Serum</div>
-          </div>
-        ),
+        id: 'life-os-3',
+        number: 3,
+        title: 'Mid-Left Box',
+        type: 'mid-left-box',
+        image: '/assets/Life OS 3.png',
+        alt: 'Life OS - Mid-Left Box',
       },
       {
-        id: 'be-4',
-        type: 'bottom-center-left-overlap',
-        render: () => (
-          <div className="card-be-packaging">
-            <img src="/portfolio_2.png" alt="Bare Earth Oil" className="be-photo" />
-          </div>
-        ),
+        id: 'life-os-4',
+        number: 4,
+        title: 'Bottom-Left Overlap Box',
+        type: 'bottom-left-overlap-box',
+        image: '/assets/Life OS 4.png',
+        alt: 'Life OS - Bottom-Left Overlap Box',
       },
       {
-        id: 'be-5',
-        type: 'bottom-right-grid',
-        render: () => (
-          <div className="card-be-grid">
-            <div className="slate-tiles">
-              <div className="tile b1" />
-              <div className="tile b2"><span className="serif">“Born from Nature”</span></div>
-              <div className="tile b3" />
-              <div className="tile b4" />
-              <div className="tile b5"><span>ORGANIC</span></div>
-              <div className="tile b6" />
-            </div>
-          </div>
-        ),
+        id: 'life-os-5',
+        number: 5,
+        title: 'Bottom-Right Box',
+        type: 'bottom-right-box',
+        image: '/assets/Life OS 5.png',
+        alt: 'Life OS - Bottom-Right Box',
       },
     ],
   },
 ];
+
+const STICKER_ROTATIONS = {
+  'top-left-box': -3,
+  'top-right-box': 3.5,
+  'mid-left-box': -2,
+  'bottom-left-overlap-box': 2.5,
+  'bottom-right-box': 2,
+  'mid-right-box': -2.5,
+  'top-left-horizontal': -3,
+  'top-right-square': 3.5,
+  'mid-left-portrait': -2,
+  'bottom-center-left-overlap': 2.5,
+  'mid-right-portrait': -2.5,
+  'bottom-right-grid': 2,
+};
+
+const DraggableSticker = ({
+  card,
+  stageRef,
+  zIndex,
+  onBringToFront,
+}) => {
+  const [isDragging, setIsDragging] = useState(false);
+  const baseRotation = STICKER_ROTATIONS[card.type] || 0;
+
+  return (
+    <motion.div
+      className={`showcase-card sticker-item pos-${card.type} ${
+        isDragging ? 'is-dragging' : ''
+      }`}
+      drag
+      dragConstraints={stageRef}
+      dragElastic={0}
+      dragMomentum={false}
+      dragSnapToOrigin={false}
+      dragTransition={{ power: 0, timeConstant: 0 }}
+      style={{ zIndex }}
+      onPointerDown={() => onBringToFront(card.id)}
+      onDragStart={() => {
+        setIsDragging(true);
+        onBringToFront(card.id);
+      }}
+      onDragEnd={() => {
+        setIsDragging(false);
+      }}
+      initial={{ opacity: 0, scale: 0.88, rotate: baseRotation }}
+      animate={{ opacity: 1, scale: 1, rotate: baseRotation }}
+      exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.18 } }}
+      whileHover={{
+        scale: 1.03,
+        transition: { duration: 0.15 },
+      }}
+      whileDrag={{
+        scale: 1.06,
+        cursor: 'grabbing',
+      }}
+    >
+      <div className="sticker-content-wrap">
+        {card.image ? (
+          <img
+            src={card.image}
+            alt={card.alt || card.title}
+            className="sticker-image"
+            draggable={false}
+          />
+        ) : card.render ? (
+          card.render()
+        ) : null}
+      </div>
+    </motion.div>
+  );
+};
 
 const InteractiveImageShowcase = ({
   projects = PROJECTS_DATA,
@@ -414,6 +333,26 @@ const InteractiveImageShowcase = ({
 }) => {
   const [internalIndex, setInternalIndex] = useState(0);
   const activeIndex = externalIndex !== undefined ? externalIndex : internalIndex;
+
+  const [cardZIndexMap, setCardZIndexMap] = useState({});
+  const topZRef = useRef(30);
+  const [boardResetKey, setBoardResetKey] = useState(0);
+  const stageRef = useRef(null);
+
+  const bringToFront = (cardId) => {
+    topZRef.current += 1;
+    const nextZ = topZRef.current;
+    setCardZIndexMap((prev) => ({
+      ...prev,
+      [cardId]: nextZ,
+    }));
+  };
+
+  const resetStickers = () => {
+    setBoardResetKey((k) => k + 1);
+    setCardZIndexMap({});
+    topZRef.current = 30;
+  };
 
   const setActiveIndex = useCallback(
     (newIndex) => {
@@ -450,8 +389,8 @@ const InteractiveImageShowcase = ({
   const currentProject = projects[activeIndex] || projects[0];
 
   return (
-    <div className="interactive-showcase-stage">
-      {/* Central Typography Navigation matching the screenshots */}
+    <div className="interactive-showcase-stage" ref={stageRef}>
+      {/* Central Typography Navigation matching the reference screenshots */}
       <div className="center-project-list">
         {projects.map((proj, idx) => {
           const isActive = idx === activeIndex;
@@ -473,61 +412,27 @@ const InteractiveImageShowcase = ({
         })}
       </div>
 
-      {/* Floating Surrounding Cards Layer */}
-      <motion.div
-        className="floating-cards-layer"
-        drag="x"
-        dragConstraints={{ left: 0, right: 0 }}
-        dragElastic={0.25}
-        onDragEnd={(e, info) => {
-          if (info.offset.x < -40 || info.velocity.x < -200) {
-            nextProject();
-          } else if (info.offset.x > 40 || info.velocity.x > 200) {
-            prevProject();
-          }
-        }}
-      >
+      {/* Interactive Sticker Board Canvas */}
+      <div className="sticker-board-canvas">
         <AnimatePresence mode="wait">
           <motion.div
-            key={currentProject.id}
+            key={`board-${currentProject.id}-${boardResetKey}`}
             className="cards-cluster"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.03 }}
-            transition={{
-              type: 'spring',
-              stiffness: 260,
-              damping: 24,
-              mass: 0.8,
-            }}
           >
-            {currentProject.cards.map((card, cIdx) => (
-              <motion.div
+            {currentProject.cards.map((card) => (
+              <DraggableSticker
                 key={card.id}
-                className={`showcase-card pos-${card.type}`}
-                initial={{ opacity: 0, y: 25, scale: 0.88 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{
-                  type: 'spring',
-                  stiffness: 240,
-                  damping: 22,
-                  delay: cIdx * 0.04,
-                }}
-                whileHover={{
-                  scale: 1.05,
-                  y: -6,
-                  transition: { duration: 0.25 },
-                }}
-                onClick={nextProject}
-              >
-                {card.render()}
-              </motion.div>
+                card={card}
+                stageRef={stageRef}
+                zIndex={cardZIndexMap[card.id]}
+                onBringToFront={bringToFront}
+              />
             ))}
           </motion.div>
         </AnimatePresence>
-      </motion.div>
+      </div>
 
-      {/* Bottom Circular Waypoints and Controls */}
+      {/* Bottom Controls with Pagination Dots and Reset Board */}
       <div className="showcase-bottom-controls">
         <button
           type="button"
@@ -570,6 +475,20 @@ const InteractiveImageShowcase = ({
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
             <path d="M9 18l6-6-6-6" />
           </svg>
+        </button>
+
+        {/* Reset Stickers Button */}
+        <button
+          type="button"
+          className="reset-stickers-btn"
+          onClick={resetStickers}
+          title="Reset stickers to initial layout"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+            <path d="M3 3v5h5" />
+          </svg>
+          <span>Reset Board</span>
         </button>
       </div>
 

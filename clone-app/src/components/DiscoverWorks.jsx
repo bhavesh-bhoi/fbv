@@ -203,14 +203,18 @@ const DiscoverWorks = () => {
     startMomentum();
   };
 
-  const handleCardClick = (e) => {
+  const handleCardClick = (work, e) => {
     // If the user was dragging with displacement > 6px, do not navigate
     if (movedDistanceRef.current > 6) {
       e.preventDefault();
       e.stopPropagation();
       return;
     }
-    window.location.hash = '#work';
+    if (work && (work.id === 'bare-earth' || work.id === 'bared-earth')) {
+      window.location.hash = '#bared-earth';
+    } else {
+      window.location.hash = '#work';
+    }
   };
 
   return (
@@ -219,29 +223,31 @@ const DiscoverWorks = () => {
 
         {/* Left Header Column */}
         <div className="discover-works-left">
-          <h2 className="discover-title">
-            <span className="discover-line">Discover</span>
-            <span className="works-line">
-              my works
-              {/* Hand-drawn double wavy underline SVG */}
-              <svg
-                className="works-wavy-underline"
-                width="155"
-                height="20"
-                viewBox="0 0 155 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4 14 C 20 8, 32 22, 48 14 C 64 6, 76 22, 92 14 C 108 6, 120 22, 136 14 C 144 10, 150 16, 154 14"
-                  stroke="#0055cb"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  opacity="0.8"
-                />
-              </svg>
-            </span>
-          </h2>
+          <a href="#work" className="discover-title-anchor" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <h2 className="discover-title">
+              <span className="discover-line">Discover</span>
+              <span className="works-line">
+                my works
+                {/* Hand-drawn double wavy underline SVG */}
+                <svg
+                  className="works-wavy-underline"
+                  width="155"
+                  height="20"
+                  viewBox="0 0 155 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4 14 C 20 8, 32 22, 48 14 C 64 6, 76 22, 92 14 C 108 6, 120 22, 136 14 C 144 10, 150 16, 154 14"
+                    stroke="#0055cb"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    opacity="0.8"
+                  />
+                </svg>
+              </span>
+            </h2>
+          </a>
 
           <a href="#work" className="see-more-btn">
             SEE MORE
@@ -263,7 +269,7 @@ const DiscoverWorks = () => {
                     <div
                       key={`work-${loopIndex}-${work.id}`}
                       className="work-gallery-card"
-                      onClick={handleCardClick}
+                      onClick={(e) => handleCardClick(work, e)}
                     >
                       <div className="card-thumb-wrap">
                         <img

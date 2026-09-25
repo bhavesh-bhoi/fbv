@@ -13,11 +13,39 @@ import Work from './pages/Work';
 import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
+import BareEarthPage from './pages/BareEarthPage';
 
 import './index.css';
 
 function App() {
-  const [currentPath, setCurrentPath] = useState(window.location.hash || '#home');
+  const getRoute = () => {
+    const hash = (window.location.hash || '').toLowerCase();
+    const path = (window.location.pathname || '').toLowerCase();
+
+    if (
+      hash === '#bared-earth' ||
+      hash === '#bare-earth' ||
+      path === '/bared-earth' ||
+      path === '/bare-earth'
+    ) {
+      return 'bare-earth';
+    }
+    if (hash === '#work' || path === '/portfolio' || path === '/work') {
+      return 'work';
+    }
+    if (hash === '#about' || hash === '#about-me' || path === '/about' || path === '/about-me') {
+      return 'about';
+    }
+    if (hash === '#services' || path === '/services') {
+      return 'services';
+    }
+    if (hash === '#work-with-me' || hash === '#contact' || path === '/work-with-me' || path === '/contact') {
+      return 'contact';
+    }
+    return 'home';
+  };
+
+  const [currentRoute, setCurrentRoute] = useState(getRoute());
 
   useEffect(() => {
     // Initialize Lenis Smooth Scroll
@@ -48,31 +76,37 @@ function App() {
       AOS.refresh();
     });
 
-    const onHashChange = () => {
-      setCurrentPath(window.location.hash || '#home');
+    const onRouteChange = () => {
+      setCurrentRoute(getRoute());
+      window.scrollTo({ top: 0, behavior: 'instant' });
       lenis.scrollTo(0, { immediate: true });
+      AOS.refresh();
     };
 
-    window.addEventListener('hashchange', onHashChange);
+    window.addEventListener('hashchange', onRouteChange);
+    window.addEventListener('popstate', onRouteChange);
 
     return () => {
-      window.removeEventListener('hashchange', onHashChange);
+      window.removeEventListener('hashchange', onRouteChange);
+      window.removeEventListener('popstate', onRouteChange);
       cancelAnimationFrame(rafId);
       lenis.destroy();
     };
   }, []);
 
   const renderPage = () => {
-    switch (currentPath) {
-      case '#work': return <Work />;
-      case '#about':
-      case '#about-me':
+    switch (currentRoute) {
+      case 'bare-earth':
+        return <BareEarthPage />;
+      case 'work':
+        return <Work />;
+      case 'about':
         return <AboutPage />;
-      case '#services': return <ServicesPage />;
-      case '#work-with-me':
-      case '#contact':
+      case 'services':
+        return <ServicesPage />;
+      case 'contact':
         return <ContactPage />;
-      case '#home':
+      case 'home':
       default:
         return <Home />;
     }

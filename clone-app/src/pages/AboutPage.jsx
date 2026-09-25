@@ -3,9 +3,9 @@ import DiscoverWorks from '../components/DiscoverWorks';
 import './AboutPage.css';
 
 const WHY_WORK_ITEMS = [
-  '+5 years of professional experience',
+  '+2 years of professional experience',
   'Tailored, unique and strategic design',
-  'Strong aesthetic sense (beauty, fashion & lifestyle)',
+  'Strong aesthetic sense (branding, UI/UX & web design)',
   'Clear communication & smooth collaboration',
   'Attention to detail and brand consistency',
   'Versatile and adaptable to different industries'
@@ -19,94 +19,148 @@ const AboutPage = () => {
   return (
     <div className="page-about-clone">
       
-      {/* 1. Hero Collage Section (hero-6 from maedesign.es/about-me) */}
-      <section className="about-hero-collage" data-aos="fade-down">
-        <div className="about-hero-collage-container">
-          
-          {/* Top Left Photo: Vidhi in black vest */}
-          <div className="collage-card collage-photo-1" data-aos="fade-down-right" data-aos-delay="100">
-            <img
-              src="/assets/vidhi_black_vest.png"
-              alt="Vidhi"
-              className="collage-img"
-            />
-          </div>
+      {/* 1. Hero Stage Section matching reference image structure */}
+      <section className="about-hero-stage-section" data-aos="fade-down">
+        <div className="about-hero-stage-container">
 
-          {/* Top Right Tag & Doodles */}
-          <div className="collage-tag collage-tag-top-right" data-aos="fade-down-left" data-aos-delay="150">
-            <p className="serif-tag">"Always adapting to each project’s personality"</p>
-            {/* Wavy underline doodle */}
-            <svg className="wavy-tag-doodle" width="115" height="16" viewBox="0 0 115 16" fill="none">
-              <path
-                d="M2 8 C 15 2, 25 14, 38 8 C 51 2, 61 14, 74 8 C 87 2, 97 14, 112 8"
-                stroke="#0055cb"
-                strokeWidth="2.5"
-                strokeLinecap="round"
+          {/* Top-Left Overlapping Photos Duo */}
+          <div className="about-hero-top-left-duo" data-aos="fade-down-right" data-aos-delay="100">
+            {/* Top Right Overlap Image: vidhi_black_vest.png */}
+            <div className="duo-photo-card photo-back">
+              <img
+                src="/assets/vidhi_black_vest.png"
+                alt="Vidhi in black vest blazer"
+                className="duo-photo-img img-vest"
               />
-            </svg>
+            </div>
+            {/* Top Left Front Image: vidhi_black_tee.png */}
+            <div className="duo-photo-card photo-front">
+              <img
+                src="/assets/vidhi_black_tee.png"
+                alt="Vidhi working on laptop"
+                className="duo-photo-img img-tee"
+              />
+            </div>
           </div>
 
-          {/* Top Far Right Photo */}
-          <div className="collage-card collage-photo-2" data-aos="fade-down-left" data-aos-delay="200">
-            <img
-              src="/assets/vidhi_black_tee.png"
-              alt="Vidhi creative work"
-              className="collage-img"
-            />
-          </div>
-
-          {/* Center Main Headline */}
-          <div className="about-hero-center-content" data-aos="zoom-in" data-aos-delay="50">
-            <h1 className="about-hero-title">
-              hello! I'm Maëva, a Valencia-based brand designer with over 5 years of experience and 50+ clients.
-            </h1>
-            <p className="about-hero-subtitle serif">
-              I help entrepreneurs and personal brands turn their ideas into something more — brands that feel intentional, aligned and full of personality.
+          {/* Top-Right Serif Quote with Hand-drawn Underline */}
+          <div className="about-hero-top-right-quote" data-aos="fade-down-left" data-aos-delay="150">
+            <p className="adapting-quote-text serif">
+              "Always adapting to each<br />
+              project's <span className="underline-word">personality"
+                <svg
+                  className="personality-underline-svg"
+                  viewBox="0 0 140 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 3.5 C 45 2, 92 4.5, 136 5.5"
+                    stroke="#0055cb"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M6 9 C 48 7.5, 96 10, 138 9.5"
+                    stroke="#0055cb"
+                    strokeWidth="2.1"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
             </p>
           </div>
 
-          {/* Bottom Left Tag: Fluent in Spanish, French and English */}
-          <div className="collage-tag collage-tag-bottom-left" data-aos="fade-up-right" data-aos-delay="200">
-            <p className="serif-tag">Fluent in Spanish, French and English.</p>
+          {/* Center Main Headline & Bio Content */}
+          <div className="about-hero-center-bio" data-aos="zoom-in" data-aos-delay="50">
+            <h1 className="about-hero-main-title">
+              Hello! I'm Vidhi, creative ui/ux designer with over 2+ years of experience.
+            </h1>
+            <p className="about-hero-subtext">
+              I help creators and businesses turn their ideas into something more — designs that feel intentional, aligned and full of personality.
+            </p>
           </div>
 
-          {/* Bottom Left Photo */}
-          <div className="collage-card collage-photo-3" data-aos="fade-up-right" data-aos-delay="250">
-            <img
-              src="/assets/about_hero_maeva.jpg"
-              alt="Studio portrait"
-              className="collage-img"
-            />
-          </div>
-
-          {/* Bottom Right Photo */}
-          <div className="collage-card collage-photo-4" data-aos="fade-up-left" data-aos-delay="250">
-            <img
-              src="/assets/contact_maeva_portrait.jpg"
-              alt="Maëva Boukhetache"
-              className="collage-img"
-            />
-          </div>
-
-          {/* Playful Stickers & Doodles */}
-          <div className="collage-sticker-star-1" aria-hidden="true">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="#0055cb">
-              <path d="M12 0 Q12 12 24 12 Q12 12 12 24 Q12 12 0 12 Q12 12 12 0 Z" />
+          {/* Bottom-Left Languages Quote with Curved Arrow */}
+          <div className="about-hero-bottom-left-languages" data-aos="fade-up-right" data-aos-delay="200">
+            <svg
+              className="fluent-arrow-svg"
+              width="44"
+              height="44"
+              viewBox="0 0 44 44"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M36 6 C 28 18, 15 18, 11 34"
+                stroke="#0055cb"
+                strokeWidth="2.8"
+                strokeLinecap="round"
+              />
+              <path
+                d="M4 25 L 11 35 L 20 31"
+                stroke="#0055cb"
+                strokeWidth="2.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
+            <p className="fluent-languages-text serif">
+              Fluent in English, Hindi and Gujarati.
+            </p>
           </div>
-          <div className="collage-sticker-star-2" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="#0055cb">
-              <path d="M12 0 Q12 12 24 12 Q12 12 12 24 Q12 12 0 12 Q12 12 12 0 Z" />
-            </svg>
-          </div>
-          <div className="collage-sticker-oval" aria-hidden="true">
-            <span>studio essence ★</span>
+
+          {/* Bottom-Right Portrait with Lightning Bolt & Yellow Badge */}
+          <div className="about-hero-bottom-right-portrait" data-aos="fade-up-left" data-aos-delay="250">
+            {/* Blue Lightning Bolt Sticker */}
+            <div className="lightning-sticker" aria-hidden="true">
+              <svg width="45" height="128" viewBox="0 0 45 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M33 2 L2 65 L21 65 L2 126 L43 51 L22 51 Z"
+                  stroke="#0055cb"
+                  strokeWidth="2.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+
+            {/* Portrait Image Card */}
+            <div className="portrait-photo-card">
+              <img
+                src="/assets/portfolio_her_image.png"
+                alt="Vidhi - UI/UX Designer"
+                className="portrait-photo-img"
+              />
+            </div>
+
+            {/* Circular Yellow "not just pretty, but smart" Badge with 5-pointed star */}
+            <div className="soft-powerful-badge" aria-hidden="true">
+              <svg viewBox="0 0 100 100" className="badge-circular-svg">
+                <path
+                  id="aboutpage-badge-path"
+                  d="M 15.28 42.62 A 35.5 35.5 0 1 1 24.90 75.10"
+                  fill="none"
+                />
+                <text className="badge-curved-text" fill="#0055cb">
+                  <textPath href="#aboutpage-badge-path" startOffset="0%">
+                    not just pretty, but smart •
+                  </textPath>
+                </text>
+                <polygon
+                  points="50.00,38.00 53.00,45.80 61.20,46.30 55.00,51.60 57.00,59.50 50.00,55.00 43.00,59.50 45.00,51.60 38.80,46.30 47.00,45.80"
+                  fill="#0055cb"
+                />
+              </svg>
+            </div>
           </div>
 
         </div>
       </section>
 
-      {/* 2. "why work with me?" Yellow Section (new-canvas from maedesign.es/about-me) */}
+      {/* 2. "why work with me?" Yellow Section */}
       <section className="about-why-work-section" data-aos="fade-up">
         <div className="about-why-work-container">
           
@@ -114,14 +168,14 @@ const AboutPage = () => {
           <div className="why-work-left" data-aos="fade-right" data-aos-delay="100">
             <div className="why-work-photo-frame">
               <img
-                src="/assets/about_studio_texture.jpg"
-                alt="Maëva creative work and materials"
+                src="/assets/vidhi.png"
+                alt="Vidhi - Creative UI/UX Designer"
                 className="why-work-img"
               />
               {/* Floating tilted sticker */}
               <div className="why-work-floating-sticker">
-                <span className="sticker-bold">soft but</span>
-                <span className="sticker-italic serif">powerful</span>
+                <span className="sticker-bold">not just pretty,</span>
+                <span className="sticker-italic serif">but smart</span>
               </div>
             </div>
           </div>
@@ -154,7 +208,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* 3. Discover My Works Drag Scroller (works from maedesign.es/about-me) */}
+      {/* 3. Discover My Works Drag Scroller */}
       <DiscoverWorks />
 
     </div>

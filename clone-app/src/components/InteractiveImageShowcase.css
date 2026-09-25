@@ -10,20 +10,20 @@
   align-items: center;
   justify-content: center;
   user-select: none;
+  background: transparent;
+  border-radius: 20px;
+  border: 1.5px solid rgba(0, 85, 203, 0.22);
+  overflow: visible;
 }
 
-/* Floating Surrounding Cards Layer */
-.floating-cards-layer {
+/* Interactive Sticker Board Canvas */
+.sticker-board-canvas {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  pointer-events: none;
   z-index: 10;
-  cursor: grab;
-}
-
-.floating-cards-layer:active {
-  cursor: grabbing;
 }
 
 .cards-cluster {
@@ -33,87 +33,120 @@
   height: 100%;
 }
 
-/* Base Card Style */
+/* Base Sticker Card Style */
 .showcase-card {
   position: absolute;
   border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
-  cursor: pointer;
-  background-color: #ffffff;
-  transition: box-shadow 0.3s ease;
-  will-change: transform, opacity;
+  overflow: visible;
+  pointer-events: auto;
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+  will-change: transform;
+  /* Die-cut sticker shadow */
+  filter: drop-shadow(0 10px 22px rgba(0, 45, 120, 0.14)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.06));
+  transition: filter 0.25s ease;
 }
 
 .showcase-card:hover {
-  box-shadow: 0 18px 40px rgba(27, 74, 186, 0.18), 0 4px 12px rgba(0, 0, 0, 0.06);
+  cursor: grab;
+  filter: drop-shadow(0 16px 32px rgba(0, 50, 150, 0.22)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.08));
+}
+
+.showcase-card.is-dragging {
+  cursor: grabbing !important;
+  filter: drop-shadow(0 28px 48px rgba(0, 50, 150, 0.32)) drop-shadow(0 10px 18px rgba(0, 50, 150, 0.2)) !important;
+}
+
+.sticker-content-wrap {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sticker-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* =========================================================
-   EXACT 6 POSITIONS FROM SCREENSHOT 1 & SCREENSHOT 2
+   EXACT 6 POSITIONS FROM SPEC:
+   Top-Left Box - 1
+   Top-Right Box - 2
+   Mid-Left Box - 3
+   Bottom-Left Overlap Box - 4
+   Bottom-Right Box - 5
+   Mid-Right Box (alternate) - 6
    ========================================================= */
 
-/* 1. Top Left Horizontal / Square */
+/* 1. Top-Left Box - 1 */
+.pos-top-left-box,
 .pos-top-left-horizontal {
   top: -20px;
   left: 12%;
   width: 250px;
-  height: 145px;
+  height: auto;
   z-index: 12;
 }
 
-/* 2. Top Right Square / Circle */
+/* 2. Top-Right Box - 2 */
+.pos-top-right-box,
 .pos-top-right-square {
   top: -30px;
   right: 12%;
   width: 190px;
-  height: 175px;
+  height: auto;
   z-index: 12;
 }
 
-/* 3. Middle Left Portrait */
+/* 3. Mid-Left Box - 3 */
+.pos-mid-left-box,
 .pos-mid-left-portrait {
   top: 240px;
   left: 10%;
   width: 175px;
-  height: 235px;
+  height: auto;
   z-index: 11;
 }
 
-/* 4. Bottom Center-Left Overlap (overlaps Middle Left) */
+/* 4. Bottom-Left Overlap Box - 4 (overlaps Mid-Left Box) */
+.pos-bottom-left-overlap-box,
 .pos-bottom-center-left-overlap {
   top: 360px;
   left: 21%;
   width: 155px;
-  height: 185px;
-  z-index: 16; /* High z-index to naturally overlap the mid-left card */
+  height: auto;
+  z-index: 16;
+  /* High z-index to naturally overlap the mid-left card */
 }
 
-/* 5. Middle Right Portrait (in Inner Matter) */
-.pos-mid-right-portrait {
-  top: 210px;
-  right: 18%;
-  width: 160px;
-  height: 240px;
-  z-index: 12;
-}
-
-/* 6. Bottom Right Grid / Horizontal */
+/* 5. Bottom-Right Box - 5 */
+.pos-bottom-right-box,
 .pos-bottom-right-grid {
   top: 340px;
   right: 12%;
   width: 195px;
-  height: 240px;
+  height: auto;
   z-index: 13;
 }
 
-/* Dedicated styling for the horizontal olive card in Inner Matter */
-.showcase-card:has(.card-im-olive-horizontal) {
-  top: 410px;
-  right: 18%;
+/* 6. Mid-Right Box (alternate) - 6 */
+.pos-mid-right-box,
+.pos-mid-right-portrait {
+  top: 200px;
+  right: 17%;
   width: 210px;
-  height: 110px;
-  z-index: 15;
+  height: auto;
+  z-index: 14;
 }
 
 /* =========================================================
@@ -198,7 +231,7 @@
   flex-direction: column;
   justify-content: space-between;
   border: 1px solid rgba(27, 74, 186, 0.15);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .flyer-top {
@@ -240,10 +273,22 @@
   height: 38px;
   border-radius: 4px;
 }
-.f1 { background: linear-gradient(135deg, #cbe2f8, #a8cdf2); }
-.f2 { background: linear-gradient(135deg, #daebfa, #bfe0f8); }
-.f3 { background: linear-gradient(135deg, #b8d8f7, #98c4ef); }
-.f4 { background: linear-gradient(135deg, #9ac3ef, #78aee8); }
+
+.f1 {
+  background: linear-gradient(135deg, #cbe2f8, #a8cdf2);
+}
+
+.f2 {
+  background: linear-gradient(135deg, #daebfa, #bfe0f8);
+}
+
+.f3 {
+  background: linear-gradient(135deg, #b8d8f7, #98c4ef);
+}
+
+.f4 {
+  background: linear-gradient(135deg, #9ac3ef, #78aee8);
+}
 
 /* Mosi Skin Bottom Overlap: Shopping Bag Mockup */
 .card-bag-portrait {
@@ -331,12 +376,30 @@
   padding: 0.2rem;
 }
 
-.t1 { background: linear-gradient(135deg, #d3c4b5, #bead9b); }
-.t2 { color: #1b4aba; }
-.t3 { background-color: #1b4aba; }
-.t4 { background: linear-gradient(135deg, #7c5a45, #573a27); }
-.t5 { color: #1b4aba; font-weight: 800; }
-.t6 { background: linear-gradient(135deg, #e3ecf5, #bed1e4); }
+.t1 {
+  background: linear-gradient(135deg, #d3c4b5, #bead9b);
+}
+
+.t2 {
+  color: #1b4aba;
+}
+
+.t3 {
+  background-color: #1b4aba;
+}
+
+.t4 {
+  background: linear-gradient(135deg, #7c5a45, #573a27);
+}
+
+.t5 {
+  color: #1b4aba;
+  font-weight: 800;
+}
+
+.t6 {
+  background: linear-gradient(135deg, #e3ecf5, #bed1e4);
+}
 
 /* =========================================================
    CARD INTERNAL DESIGNS: INNER MATTER (Screenshot 2)
@@ -485,7 +548,7 @@
   height: 75px;
   background: radial-gradient(circle at 30% 30%, #ffffff 0%, #e3effa 70%);
   border-radius: 50%;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.1));
   margin-bottom: -25px;
 }
 
@@ -641,17 +704,20 @@
   align-items: center;
   justify-content: center;
 }
+
 .pbt-logo-main {
   font-size: 1.4rem;
   color: #1b4aba;
   letter-spacing: 1px;
 }
+
 .pbt-sub {
   font-size: 0.55rem;
   letter-spacing: 2px;
   color: #1b4aba;
   margin-top: 0.2rem;
 }
+
 .card-pbt-dark-square {
   width: 100%;
   height: 100%;
@@ -661,17 +727,21 @@
   justify-content: center;
   color: #ffffff;
 }
+
 .pbt-monogram {
   font-size: 2.5rem;
 }
+
 .sparkle-star-gold {
   color: #f0c05a;
   font-size: 1.2rem;
 }
+
 .pbt-est {
   font-size: 0.55rem;
   letter-spacing: 2px;
 }
+
 .card-pbt-silk {
   width: 100%;
   height: 100%;
@@ -681,6 +751,7 @@
   justify-content: center;
   padding: 0.8rem;
 }
+
 .silk-sheet {
   background-color: #ffffff;
   padding: 0.8rem;
@@ -688,12 +759,14 @@
   text-align: center;
   color: #1b4aba;
 }
+
 .tag-price {
   font-size: 0.55rem;
   letter-spacing: 1px;
   display: block;
   margin-top: 0.2rem;
 }
+
 .card-pbt-tote {
   width: 100%;
   height: 100%;
@@ -702,22 +775,43 @@
   align-items: center;
   justify-content: center;
 }
+
 .tote-text {
   font-size: 1.8rem;
   color: #1b4aba;
 }
+
 .card-pbt-moodboard {
   width: 100%;
   height: 100%;
   background-color: #d1b8be;
   padding: 0.8rem;
 }
-.p1 { background: linear-gradient(135deg, #f5e4e6, #e3c1c5); }
-.p2 { color: #1b4aba; }
-.p3 { background-color: #1b4aba; }
-.p4 { background: linear-gradient(135deg, #eed3d6, #c5979d); }
-.p5 { color: #1b4aba; font-weight: 800; }
-.p6 { background: linear-gradient(135deg, #eddce0, #c4a1a7); }
+
+.p1 {
+  background: linear-gradient(135deg, #f5e4e6, #e3c1c5);
+}
+
+.p2 {
+  color: #1b4aba;
+}
+
+.p3 {
+  background-color: #1b4aba;
+}
+
+.p4 {
+  background: linear-gradient(135deg, #eed3d6, #c5979d);
+}
+
+.p5 {
+  color: #1b4aba;
+  font-weight: 800;
+}
+
+.p6 {
+  background: linear-gradient(135deg, #eddce0, #c4a1a7);
+}
 
 /* =========================================================
    CARD INTERNAL DESIGNS: SHARED GROUND & BARE EARTH
@@ -731,15 +825,18 @@
   justify-content: center;
   color: #3b1e16;
 }
+
 .sg-title-clean {
   font-size: 1.3rem;
   font-weight: 800;
   letter-spacing: 2px;
 }
+
 .sg-sub {
   font-size: 0.5rem;
   letter-spacing: 2px;
 }
+
 .card-sg-stone {
   width: 100%;
   height: 100%;
@@ -749,9 +846,20 @@
   justify-content: center;
   color: #ffffff;
 }
-.sg-emblem { font-size: 1.4rem; }
-.sg-stone-title { font-size: 1.1rem; }
-.sg-meta { font-size: 0.55rem; letter-spacing: 1px; }
+
+.sg-emblem {
+  font-size: 1.4rem;
+}
+
+.sg-stone-title {
+  font-size: 1.1rem;
+}
+
+.sg-meta {
+  font-size: 0.55rem;
+  letter-spacing: 1px;
+}
+
 .card-sg-vessel {
   width: 100%;
   height: 100%;
@@ -760,7 +868,12 @@
   align-items: center;
   justify-content: center;
 }
-.vessel-caption { color: #2e2119; font-size: 0.8rem; }
+
+.vessel-caption {
+  color: #2e2119;
+  font-size: 0.8rem;
+}
+
 .card-sg-kraft {
   width: 100%;
   height: 100%;
@@ -769,19 +882,45 @@
   align-items: center;
   justify-content: center;
 }
-.kraft-stamp { font-size: 0.75rem; font-weight: 800; letter-spacing: 2px; color: #3b2816; }
+
+.kraft-stamp {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #3b2816;
+}
+
 .card-sg-materials {
   width: 100%;
   height: 100%;
   background-color: #998878;
   padding: 0.8rem;
 }
-.s-clay { background-color: #c97e65; }
-.s-quote { color: #291e17; }
-.s-sand { background-color: #ded1b8; }
-.s-rock { background-color: #4f4b46; }
-.s-kiln { color: #291e17; font-weight: 800; }
-.s-linen { background-color: #e5ded0; }
+
+.s-clay {
+  background-color: #c97e65;
+}
+
+.s-quote {
+  color: #291e17;
+}
+
+.s-sand {
+  background-color: #ded1b8;
+}
+
+.s-rock {
+  background-color: #4f4b46;
+}
+
+.s-kiln {
+  color: #291e17;
+  font-weight: 800;
+}
+
+.s-linen {
+  background-color: #e5ded0;
+}
 
 /* Bare Earth */
 .card-be-oatmeal {
@@ -793,8 +932,16 @@
   justify-content: center;
   color: #2d3826;
 }
-.be-logo-text { font-size: 1.8rem; }
-.be-sub { font-size: 0.5rem; letter-spacing: 2px; }
+
+.be-logo-text {
+  font-size: 1.8rem;
+}
+
+.be-sub {
+  font-size: 0.5rem;
+  letter-spacing: 2px;
+}
+
 .card-be-sage {
   width: 100%;
   height: 100%;
@@ -804,20 +951,35 @@
   justify-content: center;
   color: #ffffff;
 }
-.be-sage-title { font-size: 1.2rem; }
-.be-botanical-icon { font-size: 1.2rem; margin: 0.2rem 0; }
-.be-sage-sub { font-size: 0.5rem; letter-spacing: 2px; }
-.card-be-bottle, .card-be-packaging {
+
+.be-sage-title {
+  font-size: 1.2rem;
+}
+
+.be-botanical-icon {
+  font-size: 1.2rem;
+  margin: 0.2rem 0;
+}
+
+.be-sage-sub {
+  font-size: 0.5rem;
+  letter-spacing: 2px;
+}
+
+.card-be-bottle,
+.card-be-packaging {
   width: 100%;
   height: 100%;
   position: relative;
   overflow: hidden;
 }
+
 .be-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .photo-badge {
   position: absolute;
   bottom: 0.5rem;
@@ -828,18 +990,38 @@
   font-size: 0.65rem;
   color: #1b4aba;
 }
+
 .card-be-grid {
   width: 100%;
   height: 100%;
   background-color: #7b8e72;
   padding: 0.8rem;
 }
-.b1 { background: linear-gradient(135deg, #d3cbbd, #baae9d); }
-.b2 { color: #2c3a22; }
-.b3 { background-color: #3b4e33; }
-.b4 { background: linear-gradient(135deg, #a4b59b, #7b9170); }
-.b5 { color: #2c3a22; font-weight: 800; }
-.b6 { background: linear-gradient(135deg, #e3dfd3, #cbc5b5); }
+
+.b1 {
+  background: linear-gradient(135deg, #d3cbbd, #baae9d);
+}
+
+.b2 {
+  color: #2c3a22;
+}
+
+.b3 {
+  background-color: #3b4e33;
+}
+
+.b4 {
+  background: linear-gradient(135deg, #a4b59b, #7b9170);
+}
+
+.b5 {
+  color: #2c3a22;
+  font-weight: 800;
+}
+
+.b6 {
+  background: linear-gradient(135deg, #e3dfd3, #cbc5b5);
+}
 
 /* =========================================================
    CENTER PROJECT TYPOGRAPHY LIST
@@ -962,6 +1144,42 @@
   border: 1.5px solid var(--blue);
 }
 
+/* Reset Stickers Button */
+.reset-stickers-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(201, 216, 247, 0.45);
+  color: var(--blue, #0055cb);
+  border: 1px solid rgba(0, 85, 203, 0.22);
+  border-radius: 20px;
+  padding: 4px 12px 4px 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  margin-left: 6px;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.reset-stickers-btn:hover {
+  background: var(--blue, #0055cb);
+  color: #ffffff;
+  border-color: var(--blue, #0055cb);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 85, 203, 0.2);
+}
+
+.reset-stickers-btn svg {
+  transition: transform 0.4s ease;
+}
+
+.reset-stickers-btn:hover svg {
+  transform: rotate(-180deg);
+}
+
 /* "SEE MORE" wrap */
 .see-more-wrap {
   position: absolute;
@@ -978,40 +1196,54 @@
   .interactive-showcase-stage {
     min-height: 580px;
   }
+
   .project-nav-item {
     font-size: 2.3rem;
   }
+
+  .pos-top-left-box,
   .pos-top-left-horizontal {
     left: 6%;
     width: 200px;
-    height: 120px;
+    height: auto;
   }
+
+  .pos-top-right-box,
   .pos-top-right-square {
     right: 6%;
     width: 160px;
-    height: 145px;
+    height: auto;
   }
+
+  .pos-mid-left-box,
   .pos-mid-left-portrait {
     left: 5%;
     width: 145px;
-    height: 195px;
+    height: auto;
   }
+
+  .pos-bottom-left-overlap-box,
   .pos-bottom-center-left-overlap {
     left: 17%;
     top: 330px;
     width: 130px;
-    height: 155px;
+    height: auto;
   }
-  .pos-mid-right-portrait {
-    right: 7%;
-    width: 135px;
-    height: 195px;
-  }
+
+  .pos-bottom-right-box,
   .pos-bottom-right-grid {
     right: 5%;
     top: 310px;
     width: 165px;
-    height: 195px;
+    height: auto;
+  }
+
+  .pos-mid-right-box,
+  .pos-mid-right-portrait {
+    right: 7%;
+    top: 190px;
+    width: 165px;
+    height: auto;
   }
 }
 
@@ -1019,44 +1251,58 @@
   .interactive-showcase-stage {
     min-height: 520px;
   }
+
   .project-nav-item {
     font-size: 1.85rem;
   }
+
   .showcase-card {
-    opacity: 0.65;
+    opacity: 0.85;
   }
+
+  .pos-top-left-box,
   .pos-top-left-horizontal {
     left: 2%;
     width: 140px;
-    height: 85px;
+    height: auto;
   }
+
+  .pos-top-right-box,
   .pos-top-right-square {
     right: 2%;
     width: 120px;
-    height: 110px;
+    height: auto;
   }
+
+  .pos-mid-left-box,
   .pos-mid-left-portrait {
     left: 2%;
     top: 220px;
     width: 110px;
-    height: 150px;
+    height: auto;
   }
+
+  .pos-bottom-left-overlap-box,
   .pos-bottom-center-left-overlap {
     left: 12%;
     top: 300px;
     width: 100px;
-    height: 120px;
+    height: auto;
   }
-  .pos-mid-right-portrait {
-    right: 2%;
-    top: 200px;
-    width: 105px;
-    height: 150px;
-  }
+
+  .pos-bottom-right-box,
   .pos-bottom-right-grid {
     right: 2%;
     top: 280px;
     width: 125px;
-    height: 150px;
+    height: auto;
+  }
+
+  .pos-mid-right-box,
+  .pos-mid-right-portrait {
+    right: 2%;
+    top: 190px;
+    width: 125px;
+    height: auto;
   }
 }

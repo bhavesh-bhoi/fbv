@@ -7,178 +7,288 @@
 }
 
 /* =========================================================
-   1. HERO COLLAGE SECTION (hero-6)
+   1. HERO STAGE SECTION matching reference image structure
 ========================================================= */
-.about-hero-collage {
-  background-color: #c9d8f7;
+.about-hero-stage-section {
+  background-color: #cad8f8;
   border-bottom: 2px solid var(--blue, #0055cb);
   position: relative;
   overflow: hidden;
-  padding: 5rem 2rem 6rem 2rem;
-  min-height: 840px;
+  padding: 5.5rem 2rem 6.5rem 2rem;
+  min-height: 740px;
   display: flex;
   align-items: center;
   justify-content: center;
+  user-select: none;
 }
 
-.about-hero-collage-container {
-  max-width: 1200px;
+.about-hero-stage-container {
+  max-width: 1320px;
   width: 100%;
+  min-height: 640px;
   margin: 0 auto;
   position: relative;
-  min-height: 720px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Center Text Box */
-.about-hero-center-content {
-  max-width: 660px;
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-  z-index: 10;
-  padding: 2rem 1rem;
-}
-
-.about-hero-title {
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 2.35rem;
-  font-weight: 800;
-  line-height: 1.15;
-  color: var(--blue, #0055cb);
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.03em;
-}
-
-.about-hero-subtitle {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-style: italic;
-  font-size: 1.65rem;
-  line-height: 1.35;
-  color: var(--blue, #0055cb);
-  margin: 0 auto;
-  max-width: 560px;
-}
-
-/* Collage Photo Cards */
-.collage-card {
+/* =========================================================
+   TOP-LEFT OVERLAPPING PHOTOS DUO
+   ========================================================= */
+.about-hero-top-left-duo {
   position: absolute;
-  border-radius: 10px;
+  top: 10px;
+  left: 10px;
+  width: 320px;
+  height: 290px;
+  z-index: 4;
+}
+
+.duo-photo-card {
+  position: absolute;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 10px 28px rgba(0, 50, 140, 0.12);
-  transition: transform 0.4s ease;
-  z-index: 3;
+  will-change: transform;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
 }
 
-.collage-card:hover {
-  transform: scale(1.03) translateY(-4px);
+.duo-photo-card:hover {
+  transform: translateY(-4px) scale(1.02);
 }
 
-.collage-img {
+/* Top Right Overlap Image (vidhi_black_vest.png) */
+.duo-photo-card.photo-back {
+  top: 0;
+  right: 0;
+  width: 185px;
+  height: 245px;
+  z-index: 1;
+  box-shadow: 0 10px 24px rgba(0, 45, 120, 0.12);
+}
+
+/* Top Left Front Image (vidhi_black_tee.png) */
+.duo-photo-card.photo-front {
+  bottom: 0;
+  left: 0;
+  width: 195px;
+  height: 255px;
+  z-index: 2;
+  box-shadow: 0 14px 30px rgba(0, 45, 120, 0.16);
+}
+
+.duo-photo-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* Specific Positions for Photos */
-.collage-photo-1 {
-  top: 10px;
-  left: 20px;
-  width: 210px;
-  height: 250px;
-  transform: rotate(-3deg);
+.img-vest {
+  object-position: center 15%;
 }
 
-.collage-photo-2 {
-  top: 10px;
-  right: 20px;
-  width: 210px;
-  height: 250px;
-  transform: rotate(3deg);
+.img-tee {
+  object-position: center 25%;
 }
 
-.collage-photo-3 {
-  bottom: 15px;
-  left: 30px;
-  width: 210px;
-  height: 250px;
-  transform: rotate(2deg);
-}
-
-.collage-photo-4 {
-  bottom: 15px;
-  right: 30px;
-  width: 210px;
-  height: 250px;
-  transform: rotate(-2deg);
-}
-
-/* Collage Tags */
-.collage-tag {
+/* =========================================================
+   TOP-RIGHT QUOTE & HAND-DRAWN UNDERLINE
+   ========================================================= */
+.about-hero-top-right-quote {
   position: absolute;
-  z-index: 5;
+  top: 30px;
+  right: 140px;
+  max-width: 250px;
+  text-align: center;
+  z-index: 4;
 }
 
-.serif-tag {
+.adapting-quote-text {
   font-family: 'Instrument Serif', Georgia, serif;
   font-style: italic;
-  font-size: 1.45rem;
+  font-weight: 400;
+  font-size: 1.55rem;
+  line-height: 1.25;
+  color: var(--blue, #0055cb);
+  margin: 0 0 4px 0;
+  letter-spacing: -0.01em;
+}
+
+.underline-word {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.personality-underline-svg {
+  position: absolute;
+  left: 0;
+  bottom: -9px;
+  width: 100%;
+  height: 14px;
+  pointer-events: none;
+  overflow: visible;
+  filter: drop-shadow(0 2px 4px rgba(0, 85, 203, 0.12));
+}
+
+/* =========================================================
+   CENTER BIO TYPOGRAPHY
+   ========================================================= */
+.about-hero-center-bio {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 5;
+  padding: 2rem 1rem;
+}
+
+.about-hero-main-title {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.95rem, 2.9vw, 2.85rem);
+  font-weight: 800;
+  line-height: 1.16;
+  color: var(--blue, #0055cb);
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.about-hero-subtext {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.62;
+  color: var(--blue, #0055cb);
+  margin: 1.6rem auto 0;
+  max-width: 500px;
+  opacity: 0.95;
+}
+
+/* =========================================================
+   BOTTOM-LEFT LANGUAGES & CURVED ARROW
+   ========================================================= */
+.about-hero-bottom-left-languages {
+  position: absolute;
+  bottom: 35px;
+  left: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 250px;
+  text-align: center;
+  z-index: 4;
+}
+
+.fluent-arrow-svg {
+  display: block;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 2px 5px rgba(0, 85, 203, 0.12));
+}
+
+.fluent-languages-text {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.55rem;
+  line-height: 1.25;
   color: var(--blue, #0055cb);
   margin: 0;
-  line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 
-.collage-tag-top-right {
-  top: 60px;
-  right: 250px;
-  text-align: center;
-  max-width: 250px;
-}
-
-.wavy-tag-doodle {
-  margin-top: 4px;
-}
-
-.collage-tag-bottom-left {
-  bottom: 270px;
-  left: 30px;
-  max-width: 220px;
-}
-
-/* Star and Oval Stickers */
-.collage-sticker-star-1 {
+/* =========================================================
+   BOTTOM-RIGHT PORTRAIT WITH STICKERS
+   ========================================================= */
+.about-hero-bottom-right-portrait {
   position: absolute;
-  top: 270px;
-  left: 250px;
+  bottom: 10px;
+  right: 40px;
+  width: 220px;
+  height: 330px;
   z-index: 4;
 }
 
-.collage-sticker-star-2 {
-  position: absolute;
-  bottom: 180px;
-  right: 270px;
-  z-index: 4;
+.portrait-photo-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(0, 45, 120, 0.16);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
 }
 
-.collage-sticker-oval {
+.portrait-photo-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0, 45, 120, 0.22);
+}
+
+.portrait-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+}
+
+/* Lightning Bolt Sticker */
+.lightning-sticker {
   position: absolute;
-  bottom: 270px;
-  right: 80px;
-  background-color: var(--blue, #0055cb);
-  color: #fffcbd;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: 20px;
-  transform: rotate(8deg);
-  box-shadow: 0 4px 12px rgba(0, 50, 140, 0.15);
+  top: -65px;
+  right: 14px;
+  width: 38px;
+  height: 104px;
   z-index: 6;
+  filter: drop-shadow(0 3px 8px rgba(0, 85, 203, 0.18));
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.lightning-sticker svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.about-hero-bottom-right-portrait:hover .lightning-sticker {
+  transform: scale(1.08) rotate(4deg);
+}
+
+/* Circular Yellow "not just pretty, but smart" Badge */
+.soft-powerful-badge {
+  position: absolute;
+  bottom: 35px;
+  left: -48px;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background-color: #fcf5c6;
+  box-shadow: 0 6px 18px rgba(0, 45, 120, 0.16);
+  transform: rotate(0deg);
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+.soft-powerful-badge:hover {
+  transform: scale(1.05);
+}
+
+.badge-circular-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.badge-curved-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
 }
 
 /* =========================================================
@@ -212,12 +322,14 @@
   position: relative;
   box-shadow: 0 12px 36px rgba(0, 50, 140, 0.1);
   border: 1px solid rgba(0, 85, 203, 0.15);
+  background-color: #ffffff;
 }
 
 .why-work-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   display: block;
 }
 
@@ -238,9 +350,9 @@
 
 .sticker-bold {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 800;
-  text-transform: uppercase;
+  text-transform: lowercase;
   color: var(--blue, #0055cb);
 }
 
@@ -326,36 +438,112 @@
 }
 
 /* =========================================================
-   RESPONSIVE
+   RESPONSIVE DESIGN
 ========================================================= */
-@media (max-width: 1100px) {
-  .about-hero-collage {
-    min-height: auto;
-    padding: 4rem 1.5rem;
+
+@media (max-width: 1180px) {
+  .about-hero-top-left-duo {
+    width: 270px;
+    height: 240px;
+    left: 10px;
   }
 
-  .about-hero-collage-container {
+  .duo-photo-card.photo-back {
+    width: 155px;
+    height: 200px;
+  }
+
+  .duo-photo-card.photo-front {
+    width: 165px;
+    height: 210px;
+  }
+
+  .about-hero-top-right-quote {
+    right: 40px;
+    max-width: 210px;
+  }
+
+  .adapting-quote-text {
+    font-size: 1.35rem;
+  }
+
+  .about-hero-bottom-left-languages {
+    left: 40px;
+    max-width: 210px;
+  }
+
+  .fluent-languages-text {
+    font-size: 1.35rem;
+  }
+
+  .about-hero-bottom-right-portrait {
+    right: 15px;
+    width: 190px;
+    height: 285px;
+  }
+
+  .about-why-work-container {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .about-hero-stage-section {
+    padding: 4.5rem 1.5rem 5rem 1.5rem;
     min-height: auto;
+  }
+
+  .about-hero-stage-container {
+    min-height: auto;
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    text-align: center;
   }
 
-  .about-hero-center-content {
-    order: 1;
-    margin-bottom: 2rem;
+  .about-hero-top-left-duo {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0 auto;
+    width: 290px;
+    height: 260px;
   }
 
-  .collage-card {
-    position: static;
-    transform: none !important;
-    width: 240px;
-    height: 280px;
+  .about-hero-top-right-quote {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: -1rem auto 0;
+    max-width: 320px;
   }
 
-  .collage-tag,
-  .collage-sticker-star-1,
-  .collage-sticker-star-2,
-  .collage-sticker-oval {
-    display: none;
+  .about-hero-center-bio {
+    position: relative;
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .about-hero-main-title {
+    font-size: 2.15rem;
+  }
+
+  .about-hero-bottom-right-portrait {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin: 1rem auto 0;
+    width: 220px;
+    height: 320px;
+  }
+
+  .about-hero-bottom-left-languages {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin: 0 auto;
+    max-width: 320px;
   }
 
   .about-why-work-container {
@@ -370,13 +558,54 @@
   }
 }
 
-@media (max-width: 768px) {
-  .about-hero-title {
-    font-size: 1.85rem;
+@media (max-width: 520px) {
+  .about-hero-stage-section {
+    padding: 3.5rem 1rem 4rem 1rem;
   }
 
-  .about-hero-subtitle {
-    font-size: 1.35rem;
+  .about-hero-top-left-duo {
+    width: 250px;
+    height: 220px;
+  }
+
+  .duo-photo-card.photo-back {
+    width: 140px;
+    height: 180px;
+  }
+
+  .duo-photo-card.photo-front {
+    width: 150px;
+    height: 190px;
+  }
+
+  .about-hero-main-title {
+    font-size: 1.75rem;
+  }
+
+  .about-hero-subtext {
+    font-size: 0.95rem;
+  }
+
+  .adapting-quote-text,
+  .fluent-languages-text {
+    font-size: 1.3rem;
+  }
+
+  .about-hero-bottom-right-portrait {
+    width: 190px;
+    height: 280px;
+  }
+
+  .soft-powerful-badge {
+    width: 82px;
+    height: 82px;
+    left: -35px;
+    bottom: 25px;
+  }
+
+  .badge-curved-text {
+    font-size: 7.5px;
+    letter-spacing: 0.04em;
   }
 
   .why-work-title {

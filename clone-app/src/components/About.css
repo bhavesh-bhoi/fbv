@@ -1,301 +1,448 @@
-/* About Section matching user reference Image 2 */
+/* About Section - Editorial Brand Canvas matching user reference image */
 .about-wrapper-outer {
   width: 100%;
   position: relative;
   overflow: hidden;
 }
 
-/* Top Marquee Ribbon */
-.about-marquee-ribbon {
-  background-color: #cad8f8;
-  color: var(--blue, #0055cb);
-  padding: 0.85rem 0;
-  overflow: hidden;
-  white-space: nowrap;
-  border-top: 1.5px solid var(--blue, #0055cb);
-  border-bottom: 1.5px solid var(--blue, #0055cb);
-}
-
-.about-marquee-track {
-  display: inline-block;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  animation: marquee-infinite 28s linear infinite;
-}
-
-@keyframes marquee-infinite {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* Main Yellow Section */
+/* Main Section: Soft Pastel Blue Background */
 .about-main-section {
-  background-color: #fcf7bf; /* Signature Mae Studio warm yellow */
-  padding: 6.5rem 2rem 7rem 2rem;
-  border-bottom: 1.5px solid rgba(0, 85, 203, 0.2);
+  background-color: #cad8f8;
+  border-top: 2px solid var(--blue, #0055cb);
+  border-bottom: 2px solid var(--blue, #0055cb);
+  padding: 5.5rem 2rem 6.5rem 2rem;
+  position: relative;
+  user-select: none;
 }
 
-.about-content-container {
-  max-width: 1240px;
+/* Stage Canvas */
+.about-stage-container {
+  max-width: 1320px;
+  min-height: 640px;
   margin: 0 auto;
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 5.5rem;
-}
-
-/* --- Left Column: Photo Composition --- */
-.about-photos-column {
-  flex: 0 0 460px;
-  display: flex;
   justify-content: center;
 }
 
-.about-photo-composition {
-  position: relative;
-  width: 440px;
-  height: 480px;
+/* =========================================================
+   1. TOP-LEFT OVERLAPPING PHOTOS DUO
+   ========================================================= */
+.about-top-left-duo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 320px;
+  height: 290px;
+  z-index: 4;
 }
 
-/* Back photo (Maëva in white t-shirt) */
-.photo-card.card-back {
+.duo-photo-card {
   position: absolute;
+  border-radius: 14px;
+  overflow: hidden;
+  will-change: transform;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.duo-photo-card:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Top-Right Overlap Image (vidhi_black_vest.png) */
+.duo-photo-card.photo-back {
   top: 0;
-  left: 20px;
-  width: 230px;
-  height: 330px;
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0 10px 28px rgba(0, 50, 130, 0.12);
+  right: 0;
+  width: 185px;
+  height: 245px;
   z-index: 1;
+  box-shadow: 0 10px 24px rgba(0, 45, 120, 0.12);
 }
 
-/* Front photo (Maëva in black vest holding laptop) */
-.photo-card.card-front {
-  position: absolute;
+/* Top-Left Front Image (vidhi_black_tee.png) */
+.duo-photo-card.photo-front {
   bottom: 0;
-  right: 20px;
-  width: 255px;
-  height: 360px;
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0 14px 34px rgba(0, 50, 130, 0.16);
+  left: 0;
+  width: 195px;
+  height: 255px;
   z-index: 2;
+  box-shadow: 0 14px 30px rgba(0, 45, 120, 0.16);
 }
 
-.photo-img {
+.duo-photo-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* Hanging Disco Ball Graphic & Sparkles */
-.disco-ball-graphic {
+.img-vest {
+  object-position: center 15%;
+}
+
+.img-tee {
+  object-position: center 25%;
+}
+
+/* =========================================================
+   2. TOP-RIGHT QUOTE & HAND-DRAWN UNDERLINE
+   ========================================================= */
+.about-top-right-quote {
   position: absolute;
-  top: 60px;
-  right: 155px;
-  z-index: 3;
-  pointer-events: none;
+  top: 30px;
+  right: 140px;
+  max-width: 250px;
+  text-align: center;
+  z-index: 4;
 }
 
-.disco-string {
-  position: absolute;
-  top: -60px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 60px;
-  background-color: var(--blue, #0055cb);
-}
-
-.disco-ball-svg {
-  display: block;
-  animation: disco-sway 4s ease-in-out infinite alternate;
-  transform-origin: top center;
-}
-
-@keyframes disco-sway {
-  0% { transform: rotate(-4deg); }
-  100% { transform: rotate(4deg); }
-}
-
-.sparkle-star {
-  position: absolute;
-  animation: sparkle-pulse 2.5s ease-in-out infinite alternate;
-}
-
-.sparkle-top-right {
-  top: 8px;
-  right: -14px;
-  animation-delay: 0.3s;
-}
-
-.sparkle-bottom-left {
-  bottom: -4px;
-  left: -14px;
-  animation-delay: 0.9s;
-}
-
-@keyframes sparkle-pulse {
-  0% { transform: scale(0.8) rotate(0deg); opacity: 0.8; }
-  100% { transform: scale(1.15) rotate(15deg); opacity: 1; }
-}
-
-/* --- Right Column: Bio Typography --- */
-.about-bio-column {
-  flex: 1;
-  max-width: 620px;
-}
-
-.about-heading-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.85rem;
-  margin-bottom: 2rem;
-}
-
-.hi-pill-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--blue, #0055cb);
-  color: #ffffff;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.35rem;
-  font-weight: 800;
-  padding: 4px 10px;
-  border-radius: 6px;
-  line-height: 1;
-  margin-top: 6px;
-  box-shadow: 0 2px 8px rgba(0, 85, 203, 0.25);
-  flex-shrink: 0;
-}
-
-.about-main-headline {
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 2.85rem;
-  font-weight: 800;
-  line-height: 1.15;
-  color: var(--blue, #0055cb);
-  margin: 0;
-  letter-spacing: -0.03em;
-}
-
-.bestie-serif {
+.adapting-quote-text {
   font-family: 'Instrument Serif', Georgia, serif;
   font-style: italic;
   font-weight: 400;
-  position: relative;
-  display: inline-block;
+  font-size: 1.55rem;
+  line-height: 1.25;
+  color: var(--blue, #0055cb);
+  margin: 0 0 4px 0;
+  letter-spacing: -0.01em;
 }
 
-.bestie-wavy-underline {
+.underline-word {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.personality-underline-svg {
   position: absolute;
   left: 0;
   bottom: -9px;
   width: 100%;
-  display: block;
+  height: 14px;
+  pointer-events: none;
+  overflow: visible;
+  filter: drop-shadow(0 2px 4px rgba(0, 85, 203, 0.12));
 }
 
-/* Paragraphs */
-.about-paragraphs-area {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  margin-bottom: 2.5rem;
+/* =========================================================
+   3. CENTER BIO TYPOGRAPHY
+   ========================================================= */
+.about-center-bio {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 5;
+  padding: 2rem 1rem;
 }
 
-.about-p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.02rem;
-  font-weight: 500;
-  line-height: 1.65;
+.about-main-headline {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.95rem, 2.9vw, 2.85rem);
+  font-weight: 800;
+  line-height: 1.16;
   color: var(--blue, #0055cb);
+  letter-spacing: -0.03em;
   margin: 0;
 }
 
-/* CTA Button */
-.about-cta-row {
-  display: flex;
+.about-main-subtext {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.62;
+  color: var(--blue, #0055cb);
+  margin: 1.6rem auto 0;
+  max-width: 500px;
+  opacity: 0.95;
 }
 
-.work-together-btn {
-  display: inline-flex;
+/* =========================================================
+   4. BOTTOM-LEFT LANGUAGES & CURVED ARROW
+   ========================================================= */
+.about-bottom-left-languages {
+  position: absolute;
+  bottom: 35px;
+  left: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 250px;
+  text-align: center;
+  z-index: 4;
+}
+
+.fluent-arrow-svg {
+  display: block;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 2px 5px rgba(0, 85, 203, 0.12));
+}
+
+.fluent-languages-text {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.55rem;
+  line-height: 1.25;
+  color: var(--blue, #0055cb);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* =========================================================
+   5. BOTTOM-RIGHT PORTRAIT WITH STICKERS
+   ========================================================= */
+.about-bottom-right-portrait {
+  position: absolute;
+  bottom: 10px;
+  right: 40px;
+  width: 220px;
+  height: 330px;
+  z-index: 4;
+}
+
+.portrait-photo-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(0, 45, 120, 0.16);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.portrait-photo-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0, 45, 120, 0.22);
+}
+
+.portrait-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+}
+
+/* Lightning Bolt Sticker */
+.lightning-sticker {
+  position: absolute;
+  top: -65px;
+  right: 14px;
+  width: 38px;
+  height: 104px;
+  z-index: 6;
+  filter: drop-shadow(0 3px 8px rgba(0, 85, 203, 0.18));
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.lightning-sticker svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.about-bottom-right-portrait:hover .lightning-sticker {
+  transform: scale(1.08) rotate(4deg);
+}
+
+/* Circular Yellow "not just pretty, but smart" Badge */
+.soft-powerful-badge {
+  position: absolute;
+  bottom: 35px;
+  left: -48px;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background-color: #fcf5c6;
+  box-shadow: 0 6px 18px rgba(0, 45, 120, 0.16);
+  transform: rotate(0deg);
+  z-index: 6;
+  display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #c9d8f7;
-  color: var(--blue, #0055cb);
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+.soft-powerful-badge:hover {
+  transform: scale(1.05);
+}
+
+.badge-circular-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.badge-curved-text {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.95rem;
+  font-size: 8.5px;
   font-weight: 800;
-  letter-spacing: 0.08em;
-  padding: 0.85rem 2.2rem;
-  border-radius: 40px;
-  text-decoration: none;
-  border: 1.5px solid transparent;
-  box-shadow: 0 3px 10px rgba(0, 85, 203, 0.12);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
 }
 
-.work-together-btn:hover {
-  background-color: var(--blue, #0055cb);
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 85, 203, 0.25);
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+/* Large Tablets & Medium Screens */
+@media (max-width: 1180px) {
+  .about-top-left-duo {
+    width: 270px;
+    height: 240px;
+    left: 10px;
+  }
+
+  .duo-photo-card.photo-back {
+    width: 155px;
+    height: 200px;
+  }
+
+  .duo-photo-card.photo-front {
+    width: 165px;
+    height: 210px;
+  }
+
+  .about-top-right-quote {
+    right: 40px;
+    max-width: 210px;
+  }
+
+  .adapting-quote-text {
+    font-size: 1.35rem;
+  }
+
+  .about-bottom-left-languages {
+    left: 40px;
+    max-width: 210px;
+  }
+
+  .fluent-languages-text {
+    font-size: 1.35rem;
+  }
+
+  .about-bottom-right-portrait {
+    right: 15px;
+    width: 190px;
+    height: 285px;
+  }
 }
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .about-content-container {
+/* Tablets & Mobile: Fluid Stacked Composition */
+@media (max-width: 960px) {
+  .about-main-section {
+    padding: 4.5rem 1.5rem 5rem 1.5rem;
+  }
+
+  .about-stage-container {
+    min-height: auto;
+    display: flex;
     flex-direction: column;
-    gap: 4rem;
-    text-align: left;
+    align-items: center;
+    gap: 3rem;
+    text-align: center;
   }
 
-  .about-photos-column {
-    flex: 0 0 auto;
-    width: 100%;
-    max-width: 440px;
+  /* 1. Top Duo Photos centered */
+  .about-top-left-duo {
+    position: relative;
+    top: auto;
+    left: auto;
     margin: 0 auto;
+    width: 290px;
+    height: 260px;
   }
 
-  .about-bio-column {
+  /* 2. Top-Right Quote centered */
+  .about-top-right-quote {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: -1rem auto 0;
+    max-width: 320px;
+  }
+
+  /* 3. Center Bio */
+  .about-center-bio {
+    position: relative;
+    padding: 0;
     max-width: 100%;
   }
 
   .about-main-headline {
-    font-size: 2.3rem;
+    font-size: 2.15rem;
+  }
+
+  /* 4. Bottom Portrait centered with stickers */
+  .about-bottom-right-portrait {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin: 1rem auto 0;
+    width: 220px;
+    height: 320px;
+  }
+
+  /* 5. Bottom Languages Note */
+  .about-bottom-left-languages {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin: 0 auto;
+    max-width: 320px;
   }
 }
 
-@media (max-width: 600px) {
-  .about-photo-composition {
-    width: 320px;
-    height: 400px;
+@media (max-width: 520px) {
+  .about-main-section {
+    padding: 3.5rem 1rem 4rem 1rem;
   }
 
-  .photo-card.card-back {
-    width: 170px;
-    height: 250px;
+  .about-top-left-duo {
+    width: 250px;
+    height: 220px;
   }
 
-  .photo-card.card-front {
-    width: 190px;
-    height: 270px;
-    right: 0;
+  .duo-photo-card.photo-back {
+    width: 140px;
+    height: 180px;
   }
 
-  .disco-ball-graphic {
-    right: 100px;
-    top: 40px;
+  .duo-photo-card.photo-front {
+    width: 150px;
+    height: 190px;
   }
 
   .about-main-headline {
-    font-size: 1.85rem;
+    font-size: 1.75rem;
+  }
+
+  .about-main-subtext {
+    font-size: 0.95rem;
+  }
+
+  .adapting-quote-text,
+  .fluent-languages-text {
+    font-size: 1.3rem;
+  }
+
+  .about-bottom-right-portrait {
+    width: 190px;
+    height: 280px;
+  }
+
+  .soft-powerful-badge {
+    width: 82px;
+    height: 82px;
+    left: -35px;
+    bottom: 25px;
+  }
+
+  .badge-curved-text {
+    font-size: 7.5px;
+    letter-spacing: 0.04em;
   }
 }

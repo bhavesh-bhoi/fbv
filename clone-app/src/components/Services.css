@@ -7,7 +7,7 @@
 }
 
 /* Striped Quote Background */
-.striped-section {
+.striped-section {  
   background: repeating-linear-gradient(90deg,
       var(--off-white),
       var(--off-white) 25px,

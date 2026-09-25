@@ -1,0 +1,256 @@
+/* Bare Earth Project Detail Page - Aligned with maedesign.es/bared-earth */
+.page-bare-earth {
+  width: 100%;
+  background-color: #fffff8;
+  color: #0055cb;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.be-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* 1. Hero Overview Section */
+.be-hero-section {
+  padding-top: 4.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.be-hero-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.be-thumb-wrapper {
+  width: 100%;
+  height: 310px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #f0f4fa;
+  box-shadow: 0 6px 20px rgba(0, 85, 203, 0.08);
+}
+
+.be-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.5s ease;
+}
+
+.be-thumb-wrapper:hover .be-thumb-img {
+  transform: scale(1.03);
+}
+
+.be-story-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2.2rem;
+}
+
+.be-story-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.be-story-text p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.22rem;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #0055cb;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.be-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+.be-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #c9d8f7;
+  color: #0055cb;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  font-weight: 400;
+  padding: 0.5rem 1.65rem 0.55rem;
+  border-radius: 70px;
+  border: 2px solid transparent;
+  cursor: default;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.be-pill:hover {
+  border-color: rgba(19, 19, 19, 0.6);
+  transform: translateY(-2px);
+}
+
+.be-divider-line {
+  width: 100%;
+  height: 2px;
+  background-color: #0055cb;
+  margin-top: 3.8rem;
+  margin-bottom: 3.5rem;
+  opacity: 0.9;
+}
+
+/* 2. Gallery Section */
+.be-gallery-section {
+  padding-bottom: 3.5rem;
+}
+
+.be-gallery-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.be-gallery-item {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 60, 150, 0.07);
+  background-color: #f7f9fd;
+}
+
+.be-gallery-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.be-gallery-item:hover .be-gallery-img,
+.be-split-left:hover .be-gallery-img,
+.be-split-right:hover .be-gallery-img {
+  transform: scale(1.015);
+}
+
+.be-gallery-row-split {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 1.8rem;
+}
+
+.be-split-left,
+.be-split-right {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 60, 150, 0.07);
+  background-color: #f7f9fd;
+}
+
+.be-split-left .be-gallery-img,
+.be-split-right .be-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 3. Back to Projects Section */
+.be-back-section {
+  padding: 2.5rem 0 5rem 0;
+}
+
+.be-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  background-color: #c9d8f7;
+  color: #0055cb;
+  border: 2px solid #0055cb;
+  border-radius: 31px;
+  padding: 0.8rem 1.85rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(0, 85, 203, 0.12);
+}
+
+.be-back-arrow {
+  transition: transform 0.3s ease;
+}
+
+.be-back-btn:hover {
+  background-color: #0055cb;
+  color: #fffcbd;
+  border-color: #0055cb;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 85, 203, 0.22);
+}
+
+.be-back-btn:hover .be-back-arrow {
+  transform: translateX(-4px);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .be-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .be-thumb-wrapper {
+    height: 260px;
+    max-width: 420px;
+  }
+
+  .be-story-text p {
+    font-size: 1.1rem;
+  }
+
+  .be-gallery-row-split {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .be-hero-section {
+    padding-top: 2.5rem;
+  }
+
+  .be-thumb-wrapper {
+    height: 220px;
+  }
+
+  .be-story-text p {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .be-pill {
+    font-size: 1.15rem;
+    padding: 0.4rem 1.2rem;
+  }
+
+  .be-back-btn {
+    font-size: 0.82rem;
+    padding: 0.7rem 1.4rem;
+  }
+}

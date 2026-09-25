@@ -4,145 +4,148 @@ import './About.css';
 const About = () => {
   return (
     <section id="about" className="about-wrapper-outer">
-
-
-      {/* Main Yellow About Section matching user reference Image 2 */}
       <div className="about-main-section">
-        <div className="about-content-container">
+        <div className="about-stage-container">
 
-          {/* Left Column: Overlapping Studio Photos & Disco Ball Doodle */}
-          <div className="about-photos-column" data-aos="fade-right" data-aos-duration="900">
-            <div className="about-photo-composition">
-
-              {/* Back Photo: Vidhi in black t-shirt working on laptop */}
-              <div className="photo-card card-back">
-                <img
-                  src="/assets/vidhi_black_tee.png"
-                  alt="Vidhi working on laptop"
-                  className="photo-img"
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Front Photo: Vidhi in black vest holding laptop smiling */}
-              <div className="photo-card card-front">
-                <img
-                  src="/assets/vidhi_black_vest.png"
-                  alt="Vidhi brand designer"
-                  className="photo-img"
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Hanging Blue Line-Art Disco Ball & Sparkles matching reference */}
-              <div className="disco-ball-graphic" aria-hidden="true">
-                {/* Hanging String */}
-                <div className="disco-string"></div>
-
-                {/* Disco Ball SVG */}
-                <svg
-                  className="disco-ball-svg"
-                  width="86"
-                  height="86"
-                  viewBox="0 0 100 100"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  {/* Outer circle */}
-                  <circle cx="50" cy="50" r="42" stroke="#0055cb" strokeWidth="3" fill="#ffffff" fillOpacity="0.1" />
-
-                  {/* Horizontal grid curved lines */}
-                  <ellipse cx="50" cy="50" rx="42" ry="14" stroke="#0055cb" strokeWidth="2.2" fill="none" />
-                  <ellipse cx="50" cy="50" rx="42" ry="28" stroke="#0055cb" strokeWidth="2.2" fill="none" />
-                  <line x1="8" y1="50" x2="92" y2="50" stroke="#0055cb" strokeWidth="2.4" />
-
-                  {/* Vertical grid curved lines */}
-                  <ellipse cx="50" cy="50" rx="14" ry="42" stroke="#0055cb" strokeWidth="2.2" fill="none" />
-                  <ellipse cx="50" cy="50" rx="28" ry="42" stroke="#0055cb" strokeWidth="2.2" fill="none" />
-                  <line x1="50" y1="8" x2="50" y2="92" stroke="#0055cb" strokeWidth="2.4" />
-
-                  {/* Top hanger ring */}
-                  <circle cx="50" cy="5" r="3" stroke="#0055cb" strokeWidth="2" fill="none" />
-                </svg>
-
-                {/* Top-Right Blue Sparkle Star */}
-                <svg
-                  className="sparkle-star sparkle-top-right"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="#0055cb"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M12 0 Q12 12 24 12 Q12 12 12 24 Q12 12 0 12 Q12 12 12 0 Z" />
-                </svg>
-
-                {/* Bottom-Left Blue Sparkle Star */}
-                <svg
-                  className="sparkle-star sparkle-bottom-left"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="#0055cb"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M12 0 Q12 12 24 12 Q12 12 12 24 Q12 12 0 12 Q12 12 12 0 Z" />
-                </svg>
-              </div>
-
+          {/* 1. Top-Left Overlapping Photos Duo */}
+          <div className="about-top-left-duo" data-aos="fade-down-right" data-aos-duration="800">
+            {/* Top Right Overlap Image: vidhi_black_vest.png */}
+            <div className="duo-photo-card photo-back">
+              <img
+                src="/assets/vidhi_black_vest.png"
+                alt="Vidhi in black blazer vest"
+                className="duo-photo-img img-vest"
+                loading="lazy"
+              />
+            </div>
+            {/* Top Left Image: vidhi_black_tee.png */}
+            <div className="duo-photo-card photo-front">
+              <img
+                src="/assets/vidhi_black_tee.png"
+                alt="Vidhi working on laptop"
+                className="duo-photo-img img-tee"
+                loading="lazy"
+              />
             </div>
           </div>
 
-          {/* Right Column: Typography & Bio matching reference Image 2 */}
-          <div className="about-bio-column" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
+          {/* 2. Top-Right Serif Quote with Hand-drawn Underline */}
+          <div className="about-top-right-quote" data-aos="fade-down-left" data-aos-duration="800">
+            <p className="adapting-quote-text serif">
+              "Always adapting to each<br />
+              project's <span className="underline-word">personality"
+                <svg
+                  className="personality-underline-svg"
+                  viewBox="0 0 140 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 3.5 C 45 2, 92 4.5, 136 5.5"
+                    stroke="#0055cb"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M6 9 C 48 7.5, 96 10, 138 9.5"
+                    stroke="#0055cb"
+                    strokeWidth="2.1"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
+            </p>
+          </div>
 
-            <div className="about-heading-row">
-              <h2 className="about-main-headline">
-                hi, I’m Vidhi —<br />
-                your design <span className="bestie-serif">
-                  bestie
-                  <svg
-                    className="bestie-wavy-underline"
-                    width="120"
-                    height="14"
-                    viewBox="0 0 120 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M2 7 C 14 1, 24 13, 36 7 C 48 1, 58 13, 70 7 C 82 1, 92 13, 104 7 C 110 3, 115 10, 118 7"
-                      stroke="#0055cb"
-                      strokeWidth="2.8"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </span>
-              </h2>
+          {/* 3. Center Bio Typography */}
+          <div className="about-center-bio" data-aos="fade-up" data-aos-duration="850">
+            <h2 className="about-main-headline">
+              Hello! I'm Vidhi, creative ui/ux designer with over 2+ years of experience.
+            </h2>
+            <p className="about-main-subtext">
+              I help creators and businesses turn their ideas into something more — designs that feel intentional, aligned and full of personality.
+            </p>
+          </div>
+
+          {/* 4. Bottom-Left Languages Quote with Curved Arrow */}
+          <div className="about-bottom-left-languages" data-aos="fade-up-right" data-aos-duration="800">
+            <svg
+              className="fluent-arrow-svg"
+              width="44"
+              height="44"
+              viewBox="0 0 44 44"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M36 6 C 28 18, 15 18, 11 34"
+                stroke="#0055cb"
+                strokeWidth="2.8"
+                strokeLinecap="round"
+              />
+              <path
+                d="M4 25 L 11 35 L 20 31"
+                stroke="#0055cb"
+                strokeWidth="2.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <p className="fluent-languages-text serif">
+              Fluent in English, Hindi and Gujarati.
+            </p>
+          </div>
+
+          {/* 5. Bottom-Right Portrait with Lightning Bolt & Yellow Badge */}
+          <div className="about-bottom-right-portrait" data-aos="fade-up-left" data-aos-duration="850">
+            {/* Blue Lightning Bolt Sticker */}
+            <div className="lightning-sticker" aria-hidden="true">
+              <svg width="45" height="128" viewBox="0 0 45 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M33 2 L2 65 L21 65 L2 126 L43 51 L22 51 Z"
+                  stroke="#0055cb"
+                  strokeWidth="2.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </div>
 
-            <div className="about-paragraphs-area">
-              <p className="about-p">
-                I help turn your ideas into designs that feel like you.
-              </p>
-              <p className="about-p">
-                I work with creators, entrepreneurs, and growing brands who want more than just something that looks good — they want design that feels intentional, memorable, and true to their vision.
-              </p>
-              <p className="about-p">
-                From UI/UX and web design to graphics, branding, and video, I bring ideas together into visuals that feel cohesive, polished, and full of personality.
-              </p>
+            {/* Portrait Image Card */}
+            <div className="portrait-photo-card">
+              <img
+                src="/assets/portfolio_her_image.png"
+                alt="Vidhi - UI/UX Designer"
+                className="portrait-photo-img"
+                loading="lazy"
+              />
             </div>
 
-            <div className="about-cta-row">
-              <a href="#contact" className="work-together-btn">
-                LET'S WORK TOGETHER
-              </a>
+            {/* Circular Yellow "not just pretty, but smart" Badge with 5-pointed star */}
+            <div className="soft-powerful-badge" aria-hidden="true">
+              <svg viewBox="0 0 100 100" className="badge-circular-svg">
+                <path
+                  id="about-badge-path"
+                  d="M 15.28 42.62 A 35.5 35.5 0 1 1 24.90 75.10"
+                  fill="none"
+                />
+                <text className="badge-curved-text" fill="#0055cb">
+                  <textPath href="#about-badge-path" startOffset="0%">
+                    not just pretty, but smart •
+                  </textPath>
+                </text>
+                <polygon
+                  points="50.00,38.00 53.00,45.80 61.20,46.30 55.00,51.60 57.00,59.50 50.00,55.00 43.00,59.50 45.00,51.60 38.80,46.30 47.00,45.80"
+                  fill="#0055cb"
+                />
+              </svg>
             </div>
-
           </div>
 
         </div>
       </div>
-
     </section>
   );
 };
